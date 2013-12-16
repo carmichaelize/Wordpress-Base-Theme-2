@@ -1,6 +1,6 @@
 <?php
 
-class sc_meta_options {
+class sc_page_meta {
 
 	public $options = null;
 

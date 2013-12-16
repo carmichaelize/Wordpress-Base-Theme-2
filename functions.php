@@ -17,18 +17,19 @@ include_once('inc/wp_helpers.php');
 
 //Custom Classes
 include_once('inc/classes/settings_page.php');
-include_once('inc/classes/meta_options.php');
+include_once('inc/classes/page_meta.php');
 //include_once('inc/classes/product_post_type.php');
 include_once('inc/classes/mockingbird/index.php');
-//include_once('inc/classes/page_editors.php');
-include_once('inc/classes/post_gallery.php');
-//include_once('inc/classes/icon_meta.php');
+include_once('inc/classes/page_editors.php');
+include_once('inc/classes/page_images.php');
+//include_once('inc/classes/page_icons.php');
 
 //Page Template Select page-{template_name}.php && // (T)emplate Name: My Custom Page //
 //get_page_template() is_page_template()
 
 new sc_theme_settings_page();
-new sc_meta_options(array('post_types'=>array('post', 'page')));
+new sc_page_meta(array('post_types'=>array('post', 'page')));
+new sc_post_type_text_editors(array('unique_id'=>'test'));
 // new sc_post_type_template_select(array('unique_id'=>'template_select'));
 // new sc_product_post_type();
 // new sc_icon_meta(array('unique_id'=>'icon_test'));
@@ -36,7 +37,7 @@ new sc_meta_options(array('post_types'=>array('post', 'page')));
 if( is_admin() ){
 }
 
-new sc_post_gallery(array('unique_id'=>'gallery_1'));
+new sc_page_images(array('unique_id'=>'gallery_1'));
 // new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
 
 //Theme Specific Functions

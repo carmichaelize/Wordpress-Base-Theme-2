@@ -24,6 +24,16 @@ function load_the_scripts_last(){
 	wp_register_script('script', TEMPLATE_PATH.'/js/script.js', false, null, true);
 	wp_enqueue_script('script');
 	//wp_localize_script( 'script', 'AjaxObject', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
+	//Pass Page Specific Variables to JS
+	$js_params = array();
+	$js_params['pageID'] = get_the_id();
+	$js_params['isFrontPage'] = is_front_page() ? 1 : 0;
+	$js_params['isPage'] = is_page() ? 1 : 0;
+	$js_params['isSingle'] = is_single() ? 1 : 0;
+	$js_params['postType'] = get_post_type();
+
+	wp_localize_script( 'script', 'ajaxObject', $js_params );
 }
 
 add_action('wp_enqueue_scripts', 'load_the_scripts_first', 0);

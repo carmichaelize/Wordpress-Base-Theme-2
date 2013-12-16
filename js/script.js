@@ -1,3 +1,11 @@
+//Process Wordpress Variables
+var isFrontPage = parseInt(ajaxObject.isFrontPage) ? true : false,
+	isPage = parseInt(ajaxObject.isPage) ? true : false,
+	isSingle = parseInt(ajaxObject.isSingle) ? true : false,
+	pageID = parseInt(ajaxObject.pageID),
+	postType = ajaxObject.postType;
+
+
 //$("#content").load(url+" #content");
 
 //Load Content Via Ajax

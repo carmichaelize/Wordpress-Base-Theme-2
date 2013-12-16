@@ -30,6 +30,12 @@ class sc_post_type_text_editors {
 			);
 		}
 
+		//Load CSS / JS
+		if( in_array(get_post_type(), $this->options->post_types) ){
+			add_action('admin_footer', array(&$this, 'load_css'), 998);
+        	add_action('admin_footer', array(&$this, 'load_js'), 999);
+		}
+
 	}
 
 	public function custom_meta_render($object, $box){
@@ -99,10 +105,10 @@ class sc_post_type_text_editors {
 
 			.sc-editor-container .defaultSkin .mceIframeContainer{
 				border:none;
+				border-bottom: 1px solid #D1D1D1;
 			}
 
 			.sc-editor-container .defaultSkin table.mceLayout tr.mceLast td {
-				border-top: 1px solid #D1D1D1;
 				border-bottom:none;
 				border-radius:0 0 2px 2px;
 			}
@@ -216,11 +222,22 @@ class sc_post_type_text_editors {
 
 		add_action( 'init', array(&$this, 'custom_meta_setup'));
 
-		//Load CSS / JS
-        add_action('admin_footer', array(&$this, 'load_css'), 998);
-        add_action('admin_footer', array(&$this, 'load_js'), 999);
-
 	}
+}
+
+//Get Text Editors Wrapper Function
+function get_page_editors($id = false, $key = ''){
+
+	if( $id == false || $key == '' ){
+		return false;
+	}
+
+	$values = get_post_meta($id, $key, true);
+	if( is_array($values) ){
+		return (object)$values;
+	}
+	return false;
+
 }
 
 ?>

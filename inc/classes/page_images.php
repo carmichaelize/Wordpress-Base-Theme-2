@@ -1,7 +1,7 @@
 <?php
 
 /* Page Template Option */
-class sc_post_gallery {
+class sc_page_images {
 
         public $options = null;
 
@@ -599,6 +599,31 @@ class sc_post_gallery {
             add_action( 'init', array(&$this, 'custom_meta_setup'));
 
         }
+}
+
+//Get Images Wrapper Function
+function get_page_images($id = false, $key = '', $size = '', $single = false){
+
+    if( $id == false || $key == '' ){
+        return false;
+    }
+    $size = $size == '' ? 'full' : $size;
+    $images = get_post_meta($id, $key, true);
+    if( is_array($images) ){
+        $image_array = array();
+        foreach($images as $image){
+            $image = (object)wp_get_attachment_image_src( $image, $size );
+            if( $image ){
+                $image_array[] = $image;
+            }
+        }
+        if($single){
+            return $image_array[0];
+        }
+        return $image_array;
+    }
+    return false;
+
 }
 
 ?>

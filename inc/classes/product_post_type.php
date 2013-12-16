@@ -64,24 +64,21 @@ class sc_product_post_type {
 	// }
 
 	public function post_type_menu_image(){
-		//Menu Sprite Positions (remeber to change CSS selector below!)
-			//Page -149px -33px, -149px -1px
-			//Speech Buble -29px -33px, -29px -1px
-			//Media -119px -33px, -119px -1px
-			//Users -300px -33px, -300px -1px
-			//Apperance 1px -33px, 1px -1px
-			//Tools -209px -33px, -209px -1px
-			//Settings -239px -33px, -239px -1px
-			//Cog -329px -33px, -329px -1px
+		//Menu Font Values
+			//Post \f109
+			//Page \f105
+			//Speech \f101
+			//Media \f104
+			//Users \f110
+			//Apperance \f100
+			//Tools \f107
+			//Settings \f108
 
 		?>
 
 		<style>
-		    #menu-posts-products .wp-menu-image {
-		        background-position: -149px -33px !important;
-		    }
-		    #menu-posts-products:hover .wp-menu-image {
-		        background-position: -149px -1px !important;
+		    #menu-posts-staff .wp-menu-image:before {
+		        content: '\f105' !important;
 		    }
 		</style>
 

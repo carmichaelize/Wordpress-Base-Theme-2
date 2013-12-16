@@ -1,14 +1,11 @@
 <?php
 
-	// Key: 58f93e0e393a13702c9e6d485c894838
-	// Secret: ef8f9a01aa8ea1a6
-
 	$flickr = get_transient( 'sc_flickr_list' );
 
 	if( !$flickr ){
 
-		$api_key = '58f93e0e393a13702c9e6d485c894838';
-		$photoset_id = '72157638610407105';
+		$api_key = '';
+		$photoset_id = '';
 		$extras ='&extras=url_sq,url_t,url_s,url_m,url_o';
 
 		//extras (Optional)

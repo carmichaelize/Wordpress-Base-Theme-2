@@ -8,6 +8,7 @@ class Mockingbird {
 
 	public $options = array(
 					'options_page'		=> 'mockingbird-options',
+					'allow_relabel' 	=> false,
 					'display_on'		=> array('post'),
 					'types_to_display'  => array('post'),
 					'show_on'			=> array(),

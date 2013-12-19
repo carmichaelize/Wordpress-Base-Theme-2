@@ -66,7 +66,8 @@ class Mockingbird_settings extends Mockingbird {
         add_settings_field('types_to_display', 'Post types to filter:', array($this, 'plugin_post_type_input'), $this->options->options_page, 'sc_mockingbird_section', array('types_to_display'));
         add_settings_field('displayon', 'Post types to appear on:', array($this, 'plugin_post_type_input'), $this->options->options_page, 'sc_mockingbird_section', array('display_on'));
         add_settings_field('show_on', 'Individual posts to appear on:', array($this, 'showon_input'), $this->options->options_page, 'sc_mockingbird_section');
-        add_settings_field('render', 'Automatically display list at the bottom of each posts:', array($this, 'plugin_checkbox_input'), $this->options->options_page, 'sc_mockingbird_section', array('render'));
+        add_settings_field('allow_relabel', 'Allow list item relabeling:', array($this, 'plugin_checkbox_input'), $this->options->options_page, 'sc_mockingbird_section', array('allow_relabel'));
+        add_settings_field('render', 'Automatically display list at the bottom of each post:', array($this, 'plugin_checkbox_input'), $this->options->options_page, 'sc_mockingbird_section', array('render'));
 
         //Plugin Labeling
         add_settings_section('sc_mockingbird_labeling_section', 'Admin / Label Settings', array($this, 'validate_inputs'), $this->options->options_page);
@@ -76,7 +77,7 @@ class Mockingbird_settings extends Mockingbird {
         add_settings_field('plugin_priority', 'Admin priority:', array($this, 'plugin_select_input'), $this->options->options_page, 'sc_mockingbird_labeling_section', array('priority', array('default', 'core', 'high', 'low')));
 
         //Plugin Styling
-        add_settings_section('sc_mockingbird_styling_section', 'Style Settings', array($this, 'validate_inputs'), $this->options->options_page);
+        add_settings_section('sc_mockingbird_styling_section', 'List Style Settings', array($this, 'validate_inputs'), $this->options->options_page);
         add_settings_field('container_class', 'Container class:', array($this, 'plugin_text_input'), $this->options->options_page, 'sc_mockingbird_styling_section', array('container_class'));
         add_settings_field('wrapper', 'Wrapper tag:', array($this, 'plugin_text_input'), $this->options->options_page, 'sc_mockingbird_styling_section', array('wrapper'));
         add_settings_field('before', 'Before item:', array($this, 'plugin_text_input'), $this->options->options_page, 'sc_mockingbird_styling_section', array('before'));

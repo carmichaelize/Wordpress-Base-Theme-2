@@ -27,7 +27,7 @@ if( is_admin() ){
 	include('inc/mockingbird_admin.php');
 
 	//Build Post Type Widget
-	new Mockingbird_admin( 'sc_related_pages', array( 'display_on' => array('post', 'page'), 'types_to_display'=>array('post', 'page')) );
+	//new Mockingbird_admin( 'sc_related_pages', array( 'display_on' => array('post', 'page'), 'types_to_display'=>array('post', 'page')) );
 
 }
 

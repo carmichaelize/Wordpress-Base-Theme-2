@@ -58,11 +58,10 @@ class Mockingbird_admin extends Mockingbird {
 
 				<?php foreach( $this->options->types_to_display as $post_type ) : ?>
 
+					<?php $post_type_labels = get_post_type_object( $post_type ); ?>
+
 					<li data-type="<?php echo $post_type; ?>">
-						<?php
-							echo ucfirst( $post_type );
-							echo substr( $post_type, -1 ) == 's' ? '' : 's';
-						?>
+						<?php echo ucfirst( $post_type_labels->labels->name ); ?>
 					</li>
 
 				<?php endforeach; ?>
@@ -115,7 +114,7 @@ class Mockingbird_admin extends Mockingbird {
 
 		?>
 
-		<ul class="sc-mockingbird-container">
+		<ul class="sc-mockingbird-container <?php echo $this->options->allow_relabel ? 'sc-relabel' : '' ; ?>">
 
 			<script class="sc-mockingbird-template" type="text/template">
 				<li class="button" style="display:none;">
@@ -214,7 +213,14 @@ class Mockingbird_admin extends Mockingbird {
     		//Load Javascript
         	wp_register_script( 'sc_mockingbird_script', MOCKINGBIRD_URL.'/js/mockingbird.js', false, null, true );
        		wp_enqueue_script( 'sc_mockingbird_script');
-       		wp_localize_script( 'sc_mockingbird_script', 'AjaxObject', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'unique_key' => $this->unique_key ) );
+
+       		$js_vars = array(
+	       			'ajax_url' => admin_url( 'admin-ajax.php' ),
+	       			'unique_key' => $this->unique_key,
+	       			'options' => $this->options
+       			);
+       		wp_localize_script( 'sc_mockingbird_script', 'wp_js_object', $js_vars );
+
         	//Load CSS
        		if( (float)$wp_version >= 3.8 ){
 				wp_enqueue_style( 'sc_mockingbird_admin_style', MOCKINGBIRD_URL.'/css/mockingbird_admin.css' );

@@ -60,7 +60,3 @@
 			</header><!-- /#header -->
 
 			<section class="inner-wrapper">
-
-			<?php var_dump(get_page_images(2, 'gallery_1')); ?>
-
-			<?php var_dump(get_page_editors(2, 'test')); ?>

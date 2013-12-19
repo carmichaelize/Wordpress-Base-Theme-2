@@ -29,15 +29,14 @@ include_once('inc/classes/page_images.php');
 
 new sc_theme_settings_page();
 new sc_page_meta(array('post_types'=>array('post', 'page')));
-new sc_post_type_text_editors(array('unique_id'=>'test'));
+//new sc_post_type_text_editors(array('unique_id'=>'test'));
 // new sc_post_type_template_select(array('unique_id'=>'template_select'));
 // new sc_product_post_type();
 // new sc_icon_meta(array('unique_id'=>'icon_test'));
 //new sc_post_type_text_editors(array('unique_id'=>'test'));
-if( is_admin() ){
-}
+//if( is_admin() ){}
 
-new sc_page_images(array('unique_id'=>'gallery_1'));
+//new sc_page_images(array('unique_id'=>'gallery_1'));
 // new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
 
 //Theme Specific Functions

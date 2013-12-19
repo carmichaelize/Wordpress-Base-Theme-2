@@ -1,5 +1,10 @@
 jQuery(document).ready(function($){
 
+	//Wordpress Vars
+	var ajaxURL = wp_js_object.ajax_url,
+		uniqueKey = wp_js_object.unique_key,
+		options = wp_js_object.options;
+
 	//Remove No JS Message
 	$('.sc-nojs-message').remove();
 
@@ -52,8 +57,8 @@ jQuery(document).ready(function($){
 
 	});
 
-	//Rename Item
-	$('.sc-mockingbird-container').on('click', '.sc-mockingbird-label', function(){
+	//Relabel List Items
+	$('.sc-mockingbird-container.sc-relabel').on('click', '.sc-mockingbird-label', function(){
 
 		if( typeof document.addEventListener == 'function' ){
 			var $item = $(this),
@@ -67,7 +72,7 @@ jQuery(document).ready(function($){
 
 	});
 
-	$('.sc-mockingbird-container').on('blur', '.sc-title-input', function(){
+	$('.sc-mockingbird-container.sc-relabel').on('blur', '.sc-title-input', function(){
 
 		if( typeof document.addEventListener == 'function' ){
 			var $titleInput = $(this),
@@ -127,7 +132,7 @@ jQuery(document).ready(function($){
 
 		//Query Post Type
     	$.ajax({
-			url: AjaxObject.ajaxurl,
+			url: ajaxURL,
 			data: {
 				action: 'sc_mockingbird_search',
 				posttype: postType

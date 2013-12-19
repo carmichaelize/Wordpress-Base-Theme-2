@@ -33,7 +33,7 @@ ul.sc-mockingbird-container li.button input{
 	font-size: 13px;
 }
 
-ul.sc-mockingbird-container li.button .sc-mockingbird-label {
+ul.sc-mockingbird-container.sc-relabel li.button .sc-mockingbird-label {
 	cursor: pointer;
 }
 

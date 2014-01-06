@@ -532,47 +532,30 @@ class sc_page_images {
 
         public function custom_meta_save($post_id, $post=false){
 
-
-                //var_dump($_POST[$this->options->unique_id]);
-                //exit;
-
-                //Show Only On Specific Pages
-                // if( $this->options->show_on && !in_array(get_the_id(), $this->options->show_on) ){
-                //     return false;
-                // }
-
-                /* Verify the nonce before proceeding. */
+                // Verify the nonce before proceeding.
                 if ( !isset( $_POST[$this->options->unique_id.'_nonce'] ) || !wp_verify_nonce( $_POST[$this->options->unique_id.'_nonce'], basename( __FILE__ ) ) ){
                     return $post_id;
                 }
 
-                /* Get the post type object. */
-                //$post_type = get_post_type_object( $post->post_type );
-
-                /* Check if the current user has permission to edit the post. */
-                // if ( !current_user_can( $post_type->cap->edit_post, $post_id ) ){
-                //      return $post_id;
-                // }
-
-                /* Get the posted data and sanitize it for use as an HTML class. */
+                //Get the posted data and sanitize it for use as an HTML class.
                 $new_meta_value = ( isset( $_POST[$this->options->unique_id] ) ? sanitize_html_class( $_POST[$this->options->unique_id] ) : '' );
 
-                /* Get the meta value of the custom field key. */
+                //Get the meta value of the custom field key.
                 $meta_value = get_post_meta( $post_id, $this->options->unique_id, true );
 
-                /* If a new meta value was added and there was no previous value, add it. */
+                //If a new meta value was added and there was no previous value, add it.
                 if ( $new_meta_value && '' == $meta_value ){
-                        add_post_meta( $post_id, $this->options->unique_id, $new_meta_value, true );
+                    add_post_meta( $post_id, $this->options->unique_id, $new_meta_value, true );
                 }
 
-                /* If the new meta value does not match the old value, update it. */
+                //If the new meta value does not match the old value, update it.
                 elseif ( $new_meta_value && $new_meta_value != $meta_value ){
-                        update_post_meta( $post_id, $this->options->unique_id, $new_meta_value );
+                    update_post_meta( $post_id, $this->options->unique_id, $new_meta_value );
                 }
 
-                /* If there is no new meta value but an old value exists, delete it. */
+                //If there is no new meta value but an old value exists, delete it.
                 elseif ( '' == $new_meta_value && $meta_value ){
-                        delete_post_meta( $post_id, $this->options->unique_id, $meta_value );
+                    delete_post_meta( $post_id, $this->options->unique_id, $meta_value );
                 }
 
         }
@@ -612,7 +595,7 @@ function get_page_images($id = false, $key = '', $size = '', $single = false){
     if( is_array($images) ){
         $image_array = array();
         foreach($images as $image){
-            $image = (object)wp_get_attachment_image_src( $image, $size );
+            $image = wp_get_attachment_image_src( $image, $size );
             if( $image ){
                 $image_array[] = $image;
             }

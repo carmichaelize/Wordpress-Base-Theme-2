@@ -21,7 +21,7 @@ include_once('inc/classes/page_meta.php');
 //include_once('inc/classes/product_post_type.php');
 include_once('inc/classes/mockingbird/index.php');
 include_once('inc/classes/page_editors.php');
-include_once('inc/classes/page_images.php');
+include_once('inc/classes/page_images/index.php');
 //include_once('inc/classes/page_icons.php');
 
 //Page Template Select page-{template_name}.php && // (T)emplate Name: My Custom Page //
@@ -36,7 +36,8 @@ new sc_page_meta(array('post_types'=>array('post', 'page')));
 //new sc_post_type_text_editors(array('unique_id'=>'test'));
 //if( is_admin() ){}
 
-//new sc_page_images(array('unique_id'=>'gallery_1'));
+new sc_page_images('gallery_1');
+new sc_page_images('gallery_3', array('single'=>true));
 // new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
 
 //Theme Specific Functions

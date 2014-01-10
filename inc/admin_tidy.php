@@ -88,4 +88,7 @@ function remove_admin_bar_links() {
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
+//Hide Admin Bar
+add_filter('show_admin_bar', '__return_false');
+
 ?>

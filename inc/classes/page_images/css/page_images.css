@@ -3,7 +3,6 @@
 }
 
 ul.sc_gallery_container {
-
 }
 
 ul.sc_gallery_container li.sc_gallery_item {
@@ -30,7 +29,7 @@ ul.sc_gallery_container li .image-mask{
 
 ul.sc_gallery_container li > span {
 	display: block;
-	margin:10px 0 0 0;
+	margin:14px 0 0 0;
 }
 
 ul.sc_gallery_container a {
@@ -70,9 +69,12 @@ ul.sc_gallery_container.multiple li.sc_gallery_item {
     padding:1%;
     width:15%;
     max-width: 160px;
-   /* height:200px;*/
     margin:0 1.4% 2.8% 1.4%;
     cursor:move;
+}
+
+.sc-add-image.multiple {
+    margin-top:6px;
 }
 
 /* Single Image */
@@ -87,10 +89,14 @@ ul.sc_gallery_container.single li.sc_gallery_item {
 }
 
 .sc-add-image.single{
-	margin: 0 auto;
+	margin: 18px auto 0 auto;
 	width:126px;
 	display: block;
 	text-align: center;
+}
+
+.sc-add-image.hide{
+    display:none;
 }
 
 

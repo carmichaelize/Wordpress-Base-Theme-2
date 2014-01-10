@@ -1,8 +1,12 @@
 				<div class="clear"></div>
 
-			</section><!-- /.inner-wrapper -->
+			</div><!-- /.wrapper -->
 
-			<footer id="footer">
+		</section><!-- /#content -->
+
+		<footer id="footer">
+
+			<div class="wrapper">
 
 				<?php global $global_options; ?>
 				<!-- Social -->
@@ -31,9 +35,9 @@
 				<strong>&copy; Copyright <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | All Rights Reserved.</strong>
 				Designed by <a href="http://www.scottcarmichael.co.uk">Scott Carmichael</a>
 
-			</footer><!-- /#footer -->
+			</div><!-- /.wrapper -->
 
-		</div><!-- /.wrapper -->
+		</footer><!-- /#footer -->
 
 		<!--[if lt IE 8]>
     		<script src="<?php echo TEMPLATE_PATH; ?>/js/json2.js"></script>

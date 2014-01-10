@@ -66,8 +66,8 @@ h6 {
 
 }
 
-.inner-wrapper {
-  padding:20px;
+#content {
+
 }
 
 #footer {
@@ -97,7 +97,7 @@ h6 {
   text-decoration:none;
   color:#fff;
   padding:0 15px 10px 0;
-  font-size:13px; 
+  font-size:13px;
   font-weight:bold;
 }
 
@@ -116,9 +116,8 @@ h6 {
 
 /* Site Content */
 
-#content {
-  float: left;
-  width: 520px;
+.content-wrapper{
+
 }
 
 /* Sidebar */
@@ -126,7 +125,6 @@ h6 {
   list-style-type:none;
   margin:0;
   padding:0;
-  float: right;
   width: 200px;
 }
 
@@ -150,21 +148,17 @@ h6 {
 
 /* Footer */
 
-#footer{
-  background: #ccc;
-}
-
-.footerBucket {
+/*.footer-bucket {
   float:left;
   width:160px;
   margin-right:10px;
 }
 
-.footerBucket ul {
+.footer-bucket ul {
   list-style-type:none;
   padding:0;
   margin:0;
-}
+}*/
 
 /* Comments */
 

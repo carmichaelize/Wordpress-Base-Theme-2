@@ -87,7 +87,7 @@ jQuery(document).ready(function($){
 
                     //Re-display Add Button on Item Remove (Single Mode)
 	                if(self.single){
-	               		self.itemContainer.find('.sc-add-image').show();
+	               		self.itemContainer.find('.sc-add-image').removeClass('hide');
 	                }
 
                 });

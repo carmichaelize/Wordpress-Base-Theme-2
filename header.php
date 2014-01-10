@@ -35,28 +35,32 @@
 
 	<body>
 
-		<div class="wrapper">
-
 			<?php get_search_form(); ?>
 
 			<header id="header">
 
-				<a href="<?php echo get_option('home'); ?>"><?php bloginfo('name'); ?></a>
+				<div class="wrapper">
 
-				<?php
-					if( has_nav_menu('navigation-menu')){
-						wp_nav_menu(array(
-							'theme_location' => 'navigation-menu',
-							'container'=> 'nav',
-							'container_class' => 'top-nav',
-							'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li class="clear"></li></ul>',
-							'sort_column' => 'menu_order'
-						));
-					}
-				?>
+					<a href="<?php echo get_option('home'); ?>"><?php bloginfo('name'); ?></a>
 
-				<div class="clear"></div>
+					<?php
+						if( has_nav_menu('navigation-menu')){
+							wp_nav_menu(array(
+								'theme_location' => 'navigation-menu',
+								'container'=> 'nav',
+								'container_class' => 'top-nav',
+								'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li class="clear"></li></ul>',
+								'sort_column' => 'menu_order'
+							));
+						}
+					?>
+
+					<div class="clear"></div>
+
+				</div><!-- /.wrapper -->
 
 			</header><!-- /#header -->
 
-			<section class="inner-wrapper">
+			<section id="content">
+
+				<div class="wrapper">

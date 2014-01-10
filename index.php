@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<div id="content">
+<div class="content-wrapper left">
+
 	<?php if(have_posts()) : ?>
 
 		<?php while(have_posts()) : the_post(); ?>
@@ -46,6 +47,7 @@
 		Sorry, No Entries Found
 
 	<?php endif; ?>
+
 </div>
 
 <?php get_sidebar(); ?>

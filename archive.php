@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="content">
+<div class="content-wrapper left">
 
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 	<?php /* If this is a category archive */ if (is_category()) { ?>

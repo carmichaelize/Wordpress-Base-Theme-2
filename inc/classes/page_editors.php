@@ -12,7 +12,8 @@ class sc_post_type_text_editors {
 			'title'		 => 'Page Content', //title
 			'context'	 => 'normal', //normal, advanced, side
 			'priority'	 => 'default', //default, core, high, low
-			'editors' 	 => array('first_editor' => 'First Editor', 'second_editor' => 'Second Editor') //editors (array in input_id => label format)
+			'editors' 	 => array('first_editor' => 'First Editor', 'second_editor' => 'Second Editor'), //editors (array in input_id => label format)
+			'show_on'    => true
 		);
 	}
 

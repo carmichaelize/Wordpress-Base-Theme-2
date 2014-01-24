@@ -8,15 +8,15 @@ if( isset($_POST['submit']) ){
 
 	// Verify nonce before proceeding
 	if( !isset( $_POST['sc_contact_form_nonce'] ) || !wp_verify_nonce( $_POST['sc_contact_form_nonce'], basename( __FILE__ ) ) ){
-		$validation_message = "<span class='error'><i class='icon-remove-sign'></i> Security Fail !!!!</span>";
+		$validation_message = "<span class='error'><i class='fa fa-times-circle'></i> Security Fail !!!!</span><br />";
 		$passes = false;
 	}
 
 	if( !$_POST['form_name'] || !$_POST['form_email'] || !$_POST['form_message'] ){
-		$validation_message = "<span class='error'><i class='icon-remove-sign'></i> Please Fill In All Fields</span>";
+		$validation_message = "<span class='error'><i class='fa fa-times-circle'></i> Please Fill In All Fields</span><br />";
 		$passes = false;
 	} elseif( !preg_match('/@.+?\.(co.uk|com|org|gov|co|eu)$/', $_POST['form_email']) ){
-		$validation_message = "<span class='error'><i class='icon-remove-sign'></i> Please Provide A Valid Email Address</span>";
+		$validation_message = "<span class='error'><i class='fa fa-times-circle'></i> Please Provide A Valid Email Address</span><br />";
 	 	$passes = false;
 	}
 
@@ -47,19 +47,16 @@ if( isset($_POST['submit']) ){
 	<?php wp_nonce_field( basename( __FILE__ ), 'sc_contact_form_nonce' ); ?>
 
 	<label for="contact_name">Name</label>
-	<br />
 	<input id="contact_name" type="text" name="form_name" value="<?php echo isset($_POST['form_name']) ? $_POST['form_name'] : '' ; ?>" />
 
 	<br />
 
 	<label for="contact_email">Email</label>
-	<br />
 	<input id="contact_email" type="text" name="form_email" value="<?php echo isset($_POST['form_email']) ? $_POST['form_email'] : '' ; ?>" />
 
 	<br />
 
 	<label for="contact_message">Message</label>
-	<br />
 	<textarea id="contact_message" name="form_message"><?php echo isset($_POST['form_message']) ? $_POST['form_message'] : '' ; ?></textarea>
 
 	<br />
@@ -77,7 +74,7 @@ if( isset($_POST['submit']) ){
 	<?php endif; ?>
 
 	<?php if($global_options->email) : ?>
-		<span><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $global_options->email; ?>"><?php echo $global_options->email; ?></a></span>
+		<span><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $global_options->email; ?>"><?php echo $global_options->email; ?></a></span><br />
 	<?php endif; ?>
 
 	<?php if($global_options->phone) : ?>

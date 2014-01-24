@@ -23,7 +23,6 @@ function load_the_scripts_first(){
 function load_the_scripts_last(){
 	wp_register_script('script', TEMPLATE_PATH.'/js/script.js', false, null, true);
 	wp_enqueue_script('script');
-	//wp_localize_script( 'script', 'AjaxObject', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 	//Pass Page Specific Variables to JS
 	$js_params = array();

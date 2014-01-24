@@ -3,21 +3,28 @@
 <div class="content-wrapper left">
 
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-	<?php /* If this is a category archive */ if (is_category()) { ?>
-		<h2><i class="icon-folder-open"></i> Archive for the "<?php single_cat_title(); ?>" Category:</h2>
-	<?php /* If this is a tag archive */ } elseif(is_tag() || is_tax() ) { ?>
-		<h2><i class="icon-tags"></i> Posts Tagged "<?php single_tag_title(); ?>":</h2>
-	<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-		<h2><i class="icon-time"></i> Archive for <?php the_time('F jS, Y'); ?>:</h2>
-	<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-		<h2><i class="icon-time"></i> Archive for <?php the_time('F, Y'); ?>:</h2>
-	<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-		<h2><i class="icon-time"></i> Archive for <?php the_time('Y'); ?>:</h2>
-	<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-		<h2><i class="icon-user"></i> Author Archive <?php wp_title(''); ?>:</h2>
-	<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-		<h2>Archive</h2>
-	<?php } ?>
+	<?php if (is_category()) : ?>
+	 	<!--If this is a category archive -->
+		<h1><i class="fa fa-folder-open"></i> Archive for the "<?php single_cat_title(); ?>" Category</h1>
+	<?php elseif(is_tag() || is_tax() ) : ?>
+		<!-- If this is a tag archive -->
+		<h1><i class="fa fa-tags"></i> Posts Tagged "<?php single_tag_title(); ?>"</h1>
+	<?php elseif (is_day()) : ?>
+		<!-- If this is a daily archive -->
+		<h1><i class="fa fa-calendar"></i> Archive for <?php the_time('F jS, Y'); ?></h1>
+	<?php elseif (is_month()) : ?>
+		<!-- If this is a monthly archive -->
+		<h1><i class="fa fa-calendar"></i> Archive for <?php the_time('F, Y'); ?></h1>
+	<?php elseif (is_year()) : ?>
+		<!-- If this is a yearly archive -->
+		<h1><i class="fa fa-calendar"></i> Archive for <?php the_time('Y'); ?></h1>
+	<?php elseif (is_author()) : ?>
+		<!-- If this is an author archive -->
+		<h1><i class="fa fa-user"></i> Author Archive <?php wp_title(''); ?></h1>
+	<?php elseif (isset($_GET['paged']) && !empty($_GET['paged'])) : ?>
+		<!-- If this is a paged archive  -->
+		<h1>Archive</h1>
+	<?php endif; ?>
 
 	<?php if(have_posts()) : ?>
 

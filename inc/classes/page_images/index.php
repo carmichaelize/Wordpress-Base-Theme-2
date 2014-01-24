@@ -184,10 +184,10 @@ function get_page_images($id = false, $key = '', $size = '', $single = false){
     if( is_array($images) ){
         $image_array = array();
         foreach($images as $image){
-            //var_dump($image);
             $image_object = wp_get_attachment_image_src( $image, $size );
             if( $image_object ){
                 $image_object[] = $image;
+                $image_object[] = get_the_title($image);
                 $image_array[] = $image_object;
             }
         }

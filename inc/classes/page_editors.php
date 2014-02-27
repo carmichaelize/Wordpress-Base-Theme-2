@@ -119,6 +119,14 @@ class sc_post_type_text_editors {
 				color:#555;
 			}
 
+			.sc-editor-container .defaultSkin span.mceIcon.mce_code:before{
+				content:'HTML';
+				font-size: 8px;
+				font-family: sans-serif;
+				line-height: 22px !important;
+				vertical-align: top !important;
+			}
+
 		</style>
 
 	<?php }

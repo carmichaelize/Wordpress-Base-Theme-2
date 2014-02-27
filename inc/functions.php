@@ -56,6 +56,17 @@ if ( isset($global_options->google_analytics_key) && $global_options->google_ana
 
 //Some simple code for our widget-enabled sidebar
 if( function_exists('register_sidebar') ){
+
+	//$args = array(
+		//'name'          => __( 'Sidebar name', 'theme_text_domain' ),
+		//'id'            => 'unique-sidebar-id',
+		//'description'   => '',
+	    // 'class'         => '',
+		//'before_widget' => '<div class="right side white container-shadow"><ul class="inner"><li id="%1$s" class="widget %2$s">',
+		//'after_widget'  => '</li></ul></div>'
+		//'before_title'  => '<h2 class="widgettitle">',
+		//'after_title'   => '</h2>' );
+	//);
 	register_sidebar();
 }
 

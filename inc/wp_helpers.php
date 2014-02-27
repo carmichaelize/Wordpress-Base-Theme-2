@@ -17,7 +17,7 @@ class page_meta {
 			//Custom Meta Title (See meta_options.php)
 			if( $meta_title = get_post_meta($id, 'sc_seo_meta_data', true ) ){
 				if($meta_title['title'] != ''){
-					return $meta_title['title'];
+					return $meta_title['title'].' - '.$site_title;
 				}
 			}
 			return $page_title.' - '.$site_title;

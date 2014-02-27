@@ -6,40 +6,52 @@
 
 		<?php while(have_posts()) : the_post(); ?>
 
-			<div class="post">
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<article>
 
-				<div class="entry">
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-					<div class="postmetadata">
+				<div class="post-meta">
 
-						Posted in <?php the_category(', ') ?> by <?php the_author_posts_link(); ?>
+					<i class="fa fa-calendar"></i> <?php the_time('jS M Y') ?>
 
-						<br />
+					<i class="fa fa-folder-open"></i> <?php the_category(', ') ?>
 
-						<?php edit_post_link('Edit', ' &#124; ', ''); ?>
-
-						<br />
-
-						<?php the_time('jS M Y') ?>
-
-						<br />
-
-						<?php the_tags('Tags:', ', ', ''); ?>
-
-					</div>
-
-					<?php the_post_thumbnail(); ?>
-
-					<?php the_content('Read On...'); ?>
+					<?php the_tags('<i class="fa fa-tags"></i>:', ', ', ''); ?>
 
 				</div>
-			</div>
+
+				<?php the_content('Read More >>'); ?>
+
+			</article>
 
 		<?php endwhile; ?>
 
-		<div class="navigation">
-			<?php posts_nav_link(); ?>
+		<div class="pagination">
+
+			<?php
+
+				$current_page = max( 1, get_query_var('paged') );
+				$total_pages = $wp_query->max_num_pages;
+
+				$args = array(
+					'base'     => esc_url(get_pagenum_link()).'?paged=%#%',
+					'format'   => '?paged=%#%',
+					'total'    => $total_pages,
+					'current'  => max( 1, get_query_var('paged') ),
+					'show_all' => true,
+					//'end_size'     => 1,
+					//'mid_size'     => 2,
+					//'prev_next'    => True,
+					//'prev_text'    => __('« Previous'),
+					//'next_text'    => __('Next »'),
+					//'type'         => 'plain',
+					//'add_args'     => False,
+					//'add_fragment' => ''
+				);
+
+				echo paginate_links($args);
+
+			?>
 		</div>
 
 	<?php else: ?>

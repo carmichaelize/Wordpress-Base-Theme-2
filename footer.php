@@ -28,12 +28,10 @@
 					</div>
 				<?php endif; ?>
 
-				<?php echo $global_options->google_analytics_key; ?>
+				&copy; Copyright <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | All Rights Reserved.
+				Designed by <a href="http://www.scottcarmichael.co.uk">Scott Carmichael</a>
 
 				<div class="clear"></div>
-
-				<strong>&copy; Copyright <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | All Rights Reserved.</strong>
-				Designed by <a href="http://www.scottcarmichael.co.uk">Scott Carmichael</a>
 
 			</div><!-- /.wrapper -->
 

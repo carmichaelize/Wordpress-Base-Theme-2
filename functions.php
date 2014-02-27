@@ -20,7 +20,7 @@ include_once('inc/classes/settings_page.php');
 include_once('inc/classes/page_meta.php');
 //include_once('inc/classes/product_post_type.php');
 include_once('inc/classes/mockingbird/index.php');
-include_once('inc/classes/page_editors.php');
+//include_once('inc/classes/page_editors.php');
 include_once('inc/classes/page_images/index.php');
 //include_once('inc/classes/page_icons.php');
 

@@ -287,6 +287,12 @@ li.clear {
     visibility: hidden;
 }
 
+.no-list{
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
 /* Form Styling (Twitter Bootstrap)
 =========================================================================================================================*/
 

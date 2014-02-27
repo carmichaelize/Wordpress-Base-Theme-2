@@ -66,6 +66,12 @@ class sc_theme_settings_page {
         echo "<textarea class='sc_mockingbird_input' type='text' name='sc_theme_options[{$args[0]}]' style='width:298px;'>{$this->options->{$args[0]}}</textarea>";
     }
 
+    //Checkbox input
+    public function plugin_checkbox_input($args){
+        $checked = $this->options->{$args[0]} ? "checked='checked'": "";
+        echo "<input type='checkbox' name='sc_theme_options[{$args[0]}]' {$checked} />";
+    }
+
 	public function __construct(){
 		//Get and Set Previously Saved Data
 		$this->options = (object)get_option('sc_theme_options');

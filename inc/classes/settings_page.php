@@ -54,6 +54,10 @@ class sc_theme_settings_page {
     	add_settings_section('sc_analytics_section', 'Analytics & SEO', array($this, 'validate_inputs'), 'sc-theme-options');
     	add_settings_field('google_analytics_key', 'Google Analytics Key', array($this, 'text_input'), 'sc-theme-options', 'sc_analytics_section', array('google_analytics_key'));
 
+    	//Special Page Settings
+    	//add_settings_section('sc_page_select_section', 'Special Page Settings', array($this, 'validate_inputs'), 'sc-theme-options');
+    	//add_settings_field('contact_page', 'Contact Page', array($this, 'page_select_input'), 'sc-theme-options', 'sc_page_select_section', array('contact_page'));
+
 	}
 
 	//Render text input
@@ -70,6 +74,26 @@ class sc_theme_settings_page {
     public function plugin_checkbox_input($args){
         $checked = $this->options->{$args[0]} ? "checked='checked'": "";
         echo "<input type='checkbox' name='sc_theme_options[{$args[0]}]' {$checked} />";
+    }
+
+    //Render Page Select input
+    public function page_select_input($args){
+        $argss = array(
+            'post_type' => 'page',
+            'orderby' => 'title',
+            'order'  => 'ASC',
+            'posts_per_page' => -1
+        );
+        $pages = new Wp_Query($argss);
+        $pages = $pages->posts;
+        wp_reset_query();
+        echo "<select class='regular-text' type='text' name='sc_theme_options[{$args[0]}]'>";
+        echo "<option value='0'>-- Select Page --</option>";
+            foreach($pages as $page){
+                $selected = $this->options->{$args[0]} == $page->ID ? "selected='selected'" : "";
+                echo "<option value='{$page->ID}' {$selected}>{$page->post_title}</option>";
+            }
+        echo "</select>";
     }
 
 	public function __construct(){

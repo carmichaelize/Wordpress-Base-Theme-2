@@ -42,3 +42,45 @@
 	</div>
 
 <?php endif;*/ ?>
+
+
+<?php/*
+
+	$page_id = $post->ID;
+
+	//Menu Data
+	$args = array(
+			'post_type' => array('page'),
+			'post_status' => 'publish',
+			'post_parent' => $page_id,
+			'orderby' => 'menu_order',
+			'order' => 'ASC',
+			'posts_per_page' => -1
+		);
+
+	$menu = new Wp_Query($args);
+	$menu_title = "<a href='".get_permalink()."'>".get_the_title()."</a>";
+
+	if(!$menu->posts && $post->post_parent > 0){
+		$args['post_parent'] = $post->post_parent;
+		$menu = new Wp_Query($args);
+		$menu_title = "<a href='".get_permalink($post->post_parent)."'>".get_the_title($post->post_parent)."</a>";
+	}
+*/
+?>
+
+<?php /*if( $menu->have_posts() ) : ?>
+
+	<div class="sidebar beige right">
+
+		<h2><?php echo $menu_title; ?></h2>
+
+		<?php while($menu->have_posts()) : $menu->the_post(); ?>
+
+			<a class="<?php echo $page_id == get_the_id() ? 'active' : ''; ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+
+		<?php endwhile; ?>
+
+	</div>
+
+<?php endif; wp_reset_query();*/ ?>

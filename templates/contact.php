@@ -67,18 +67,21 @@ if( isset($_POST['submit']) ){
 
 <div class="contact-details">
 
-	<?php global $global_options; ?>
-
 	<?php if($global_options->name || $global_options->address) : ?>
-		<span style="white-space: pre;"><i class="fa fa-map-marker"></i> <?php echo $global_options->name; ?><br /><?php echo $global_options->address; ?></span><br />
+		<i class="fa fa-map-marker"></i> <?php echo $global_options->name; ?>
+		<br />
+		<?php echo nl2br($global_options->address); ?>
+		<br />
 	<?php endif; ?>
 
 	<?php if($global_options->email) : ?>
-		<span><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $global_options->email; ?>"><?php echo $global_options->email; ?></a></span><br />
+		<i class="fa fa-envelope"></i> <a href="mailto:<?php echo $global_options->email; ?>"><?php echo $global_options->email; ?></a>
+		<br />
 	<?php endif; ?>
 
 	<?php if($global_options->phone) : ?>
-		<span><i class="fa fa-phone"></i> <?php echo $global_options->phone; ?></span>
+		<i class="fa fa-phone"></i> <?php echo $global_options->phone; ?>
+		<br />
 	<?php endif; ?>
 
 </div>

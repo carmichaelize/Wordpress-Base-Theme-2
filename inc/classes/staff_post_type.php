@@ -2,6 +2,21 @@
 
 class sc_staff_post_type {
 
+	public $post_type_name = 'staff';
+
+	public $options = null;
+
+	//Build 'Defaults' Object
+	public function build_options() {
+		return (object)array(
+			'post_types' => array($this->post_type_name),
+			'unique_id'=> "sc_{$this->post_type_name}_details", //unique prefix
+			'title'=>'Job Details', //title
+			'context'=>'normal', //normal, advanced, side
+			'priority'=>'default' //default, core, high, low
+		);
+	}
+
 	public function post_type_options() {
 		return array(
 			'labels' => array(
@@ -56,7 +71,7 @@ class sc_staff_post_type {
 	// }
 
 	public function post_type_setup() {
-		register_post_type( 'staff', $this->post_type_options() );
+		register_post_type( $this->post_type_name, $this->post_type_options() );
 	}
 
 	// public function post_taxonomy_setup(){
@@ -64,21 +79,21 @@ class sc_staff_post_type {
 	// }
 
 	public function post_type_menu_image(){
-		//Menu Font Values
-			//Post \f109
-			//Page \f105
-			//Speech \f101
-			//Media \f104
-			//Users \f110
-			//Apperance \f100
-			//Tools \f107
-			//Settings \f108
-
-		?>
+		//Menu Sprite Positions (remeber to change CSS selector below!)
+			//Page -149px -33px, -149px -1px
+			//Speech Buble -29px -33px, -29px -1px
+			//Media -119px -33px, -119px -1px
+			//Users -300px -33px, -300px -1px
+			//Apperance 1px -33px, 1px -1px
+			//Tools -209px -33px, -209px -1px
+			//Settings -239px -33px, -239px -1px ?>
 
 		<style>
-		    #menu-posts-staff .wp-menu-image:before {
-		        content: '\f110' !important;
+		    #menu-posts-staff .wp-menu-image {
+		        background-position: -300px -33px !important;
+		    }
+		    #menu-posts-staff:hover .wp-menu-image {
+		        background-position: -300px -1px !important;
 		    }
 		</style>
 
@@ -86,19 +101,6 @@ class sc_staff_post_type {
 
 
 //Custom Meta Box
-
-	public $options = null;
-
-	//Build 'Defaults' Object
-	public function build_options() {
-		return (object)array(
-			'post_types' => array('staff'),
-			'unique_id'=>'sc_job_details', //unique prefix
-			'title'=>'Job Details', //title
-			'context'=>'normal', //normal, advanced, side
-			'priority'=>'default' //default, core, high, low
-		);
-	}
 
 	public function custom_meta_add() {
 

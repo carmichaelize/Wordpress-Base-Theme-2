@@ -65,4 +65,4 @@
 
 				<div class="wrapper">
 
-					<?php var_dump( get_page_editors() ); ?>
+					<?php $edits = get_page_editors(); var_dump( $edits->first_editor->title ); ?>

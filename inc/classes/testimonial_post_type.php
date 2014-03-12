@@ -2,6 +2,21 @@
 
 class sc_testimonial_post_type {
 
+	public $post_type_name = 'testimonials';
+
+	public $options = null;
+
+	//Build 'Defaults' Object
+	public function build_options() {
+		return (object)array(
+			'post_types' => array($this->post_type_name),
+			'unique_id'  => "sc_{$this->post_type_name}_details", //unique prefix
+			'title'		 => 'Testimonial Details', //title
+			'context'	 => 'side', //normal, advanced, side
+			'priority'	 => 'default' //default, core, high, low
+		);
+	}
+
 	public function post_type_options() {
 		return array(
 			'labels' => array(
@@ -55,7 +70,7 @@ class sc_testimonial_post_type {
 	// }
 
 	public function post_type_setup() {
-		register_post_type( 'testimonials', $this->post_type_options() );
+		register_post_type( $this->post_type_name, $this->post_type_options() );
 	}
 
 	// public function post_taxonomy_setup(){
@@ -84,19 +99,6 @@ class sc_testimonial_post_type {
 	<?php }
 
 //Custom Meta Boxes
-
-	public $options = null;
-
-	//Build 'Defaults' Object
-	public function build_options() {
-		return (object)array(
-			'post_types' => array('testimonials'),
-			'unique_id'  => 'sc_testimonial_details', //unique prefix
-			'title'		 => 'Testimonial Details', //title
-			'context'	 => 'side', //normal, advanced, side
-			'priority'	 => 'default' //default, core, high, low
-		);
-	}
 
 	public function custom_meta_add() {
 
@@ -193,6 +195,7 @@ class sc_testimonial_post_type {
 
 		//Create 'Options' Object
 		$this->options = $this->build_options();
+
 		//Add Custom Meta
 		add_action( 'init', array(&$this, 'custom_meta_setup'));
 

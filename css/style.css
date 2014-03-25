@@ -266,3 +266,63 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
 }
+
+/* Responsive Menu */
+
+/*.site-wrapper {
+  position: absolute;
+  width:100%;
+  right:0;
+  top:0;
+  overflow: hidden;
+}
+
+.responsive-nav {
+  display: block;
+  position: absolute;
+  right: -185px;
+  width: 185px;
+  font-size: 1em;
+}
+
+.responsive-nav ul {
+  list-style-type: none;
+  padding:0;
+  margin: 58px 0 0 0;
+}
+
+.responsive-nav ul li{
+  margin:0;
+  padding:0;
+  border-bottom:1px solid #77C0BE;
+}
+
+.responsive-nav ul li.current_page_item{
+  background:#77c0be;
+}
+
+.responsive-nav ul li a {
+  display: block;
+  line-height: 40px;
+  padding: 0 20px;
+}
+
+.responsive-nav ul li.current_page_item a{
+  color:#477A7C;
+}
+
+.responsive-nav ul li ul {
+  display:none;
+}
+
+a.responsive-menu-btn{
+  position: absolute;
+  font-weight: bold;
+  display: block;
+  width:30px;
+  height:30px;
+  line-height: 30px;
+  top:70px;
+  right:0;
+  text-align: center;
+}*/

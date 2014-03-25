@@ -200,4 +200,28 @@ function get_page_images($id = false, $key = '', $size = '', $single = false){
 
 }
 
+//Shortcode Function
+// function page_images_shortcode_function( $atts ) {
+
+//     if( is_single() || is_page() ){
+
+//         $defaults = array(
+//                     'id'     => get_the_id(),
+//                     'images' => array()
+//                 );
+
+//         foreach($images as $image){
+//             $image_object = wp_get_attachment_image_src( 16, $size );
+//         }
+
+//         return $content;
+//     }
+
+// }
+
+//Add Shortcode
+//add_shortcode( 'page_images', 'page_images_shortcode_function' );
+
+
+
 ?>

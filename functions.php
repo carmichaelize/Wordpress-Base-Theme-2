@@ -38,6 +38,7 @@ new sc_page_meta(array('post_types'=>array('post', 'page')));
 
 new sc_page_images('gallery_1');
 new sc_page_images('gallery_3', array('single'=>true));
+//add_image_size( 'sc_gallery_image', 200, 200, true );
 // new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
 
 //Theme Specific Functions

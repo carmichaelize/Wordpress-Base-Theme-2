@@ -65,4 +65,6 @@
 
 				<div class="wrapper">
 
-					<?php $edits = get_page_editors(); var_dump( $edits->first_editor->title ); ?>
+					<?php $edits = get_screenwriter(); var_dump( $edits ); ?>
+
+					<?php screenwriter(get_the_id(), array('before' => '<section>Test This Here OOOOOOO.'), 'scott'); ?>

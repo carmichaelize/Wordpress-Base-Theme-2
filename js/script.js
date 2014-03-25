@@ -5,6 +5,9 @@ var isFrontPage = parseInt(ajaxObject.isFrontPage) ? true : false,
 	pageID = parseInt(ajaxObject.pageID),
 	postType = ajaxObject.postType;
 
+//Responsive Menu
+//$('.responsive-menu-btn').bigSlide({menu: '.responsive-nav', side: 'right', menuWidth: '185px'});
+
 
 //$("#content").load(url+" #content");
 

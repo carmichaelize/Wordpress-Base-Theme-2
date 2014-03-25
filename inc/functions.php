@@ -12,12 +12,14 @@ function load_the_scripts_first(){
 	wp_register_script('jQuery', TEMPLATE_PATH.'/js/jquery-1.9.1.min.js', false, null, true);
 	wp_register_script('utilities', TEMPLATE_PATH.'/js/utilities.js', false, null, true);
 	//wp_register_script('bootstrap', TEMPLATE_PATH.'/js/bootstrap.min.js', false, null, true);
+	//wp_register_script('bigSlide', TEMPLATE_PATH.'/js/bigSlide.js', false, null, true);
 
 	//Activate JS Scripts
 	wp_enqueue_script('modernizr');
 	wp_enqueue_script('jQuery');
 	wp_enqueue_script('utilities');
 	//wp_enqueue_script('bootstrap');
+	//wp_enqueue_script('bigSlide');
 }
 
 function load_the_scripts_last(){

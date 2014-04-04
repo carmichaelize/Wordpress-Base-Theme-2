@@ -6,23 +6,21 @@
 
 		<?php while(have_posts()) : the_post(); ?>
 
-			<div class="post">
+				<h1><?php the_title(); ?></h1>
 
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<div class="post-meta">
 
-					<div class="entry">
-						<?php the_post_thumbnail(); ?>
+					<i class="fa fa-calendar"></i> <?php the_time('jS M Y') ?>
 
-						<?php the_content(); ?>
+					<i class="fa fa-folder-open"></i> <?php the_category(', ') ?>
 
-						<p class="postmetadata">
-						<?php _e('Filed under&#58;'); ?> <?php the_category(', ') ?> <?php _e('by'); ?> <?php  the_author(); ?><br />
-						<?php edit_post_link('Edit', ' &#124; ', ''); ?>
-						</p>
+					<?php the_tags('<i class="fa fa-tags"></i>:', ', ', ''); ?>
 
-					</div>
+				</div>
 
-			</div>
+				<?php //the_post_thumbnail(); ?>
+
+				<?php the_content('Read More >>'); ?>
 
 		<?php endwhile; ?>
 
@@ -34,4 +32,5 @@
 </div>
 
 <?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

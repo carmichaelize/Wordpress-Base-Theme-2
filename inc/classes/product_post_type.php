@@ -26,9 +26,19 @@ class sc_product_post_type {
 			'supports' => array( 'title', 'editor', 'thumbnail' ), // title, editor, thumbnail, excerpt, comments, page-attributes
 			'has_archive'   => true,
 			'rewrite' => array( 'slug' => 'products', 'with_front' => true ),
-			//'hierarchical' => true
+			//'hierarchical' => true,
+			'menu_icon' => 'dashicons-admin-tools'
 		);
 	}
+
+	//http://melchoyce.github.io/dashicons/
+	//Post 'dashicons-admin-post'
+	//Page 'dashicons-admin-page'
+	//Speech 'dashicons-admin-comments'
+	//Media  'dashicons-admin-media'
+	//Users 'dashicons-admin-users'
+	//Tools 'dashicons-admin-tools'
+	//Settings 'dashicons-admin-generic'
 
 	// public function post_taxonomy_options(){
 	// 	return array(
@@ -63,27 +73,6 @@ class sc_product_post_type {
 	// 	register_taxonomy( 'location', 'products', $this->post_taxonomy_options() );
 	// }
 
-	public function post_type_menu_image(){
-		//Menu Font Values
-			//Post \f109
-			//Page \f105
-			//Speech \f101
-			//Media \f104
-			//Users \f110
-			//Apperance \f100
-			//Tools \f107
-			//Settings \f108
-
-		?>
-
-		<style>
-		    #menu-posts-staff .wp-menu-image:before {
-		        content: '\f105' !important;
-		    }
-		</style>
-
-	<?php }
-
 	public function __construct(){
 
 		//Add Post Custom Type
@@ -91,9 +80,6 @@ class sc_product_post_type {
 
 		//Add Taxonomy to Custom Post type
 		//add_action( 'init', array(&$this, 'post_taxonomy_setup'), 0 );
-
-		//Set Menu Image From Admin Sprite
-		add_action( 'admin_head', array(&$this, 'post_type_menu_image') );
 
 	}
 

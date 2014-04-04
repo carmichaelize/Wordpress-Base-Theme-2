@@ -2,23 +2,29 @@
 
 	<div id="content">
 
-		<h2 class='bodytext_one center-text'><i class="icon-search"></i> Search Results for "<?php echo get_search_query(); ?>"</h2>
+		<h1><i class="icon-search"></i> Search Results for "<?php echo get_search_query(); ?>"</h1>
 
 		<?php if(have_posts()) : ?>
 
 			<?php while(have_posts()) : the_post(); ?>
 
-			<div class="post">
+				<article>
 
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-				<?php Str::limit( get_the_content(), 300); ?>
+					<div class="post-meta">
 
-				<br /><br />
+						<i class="fa fa-calendar"></i> <?php the_time('jS M Y') ?>
 
-				<a href="<?php the_permalink(); ?>">Read More</a>
+						<i class="fa fa-folder-open"></i> <?php the_category(', ') ?>
 
-			</div>
+						<?php the_tags('<i class="fa fa-tags"></i>:', ', ', ''); ?>
+
+					</div>
+
+					<?php the_content('Read More >>'); ?>
+
+				</article>
 
 			<?php endwhile; ?>
 

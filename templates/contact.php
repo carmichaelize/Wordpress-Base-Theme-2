@@ -5,18 +5,19 @@ $validation_message = "";
 if( isset($_POST['submit']) ){
 
 	$passes = true;
+	$validation_template = "<div class='alert %s'><i class='fa %s'></i> %s</div>";
 
 	// Verify nonce before proceeding
 	if( !isset( $_POST['sc_contact_form_nonce'] ) || !wp_verify_nonce( $_POST['sc_contact_form_nonce'], basename( __FILE__ ) ) ){
-		$validation_message = "<span class='error'><i class='fa fa-times-circle'></i> Security Fail !!!!</span><br />";
+		$validation_message = sprintf($validation_template, 'alert-error', 'fa-times-circle', 'Sorry Something went wrong, please try again.');
 		$passes = false;
 	}
 
 	if( !$_POST['form_name'] || !$_POST['form_email'] || !$_POST['form_message'] ){
-		$validation_message = "<span class='error'><i class='fa fa-times-circle'></i> Please Fill In All Fields</span><br />";
+		$validation_message = sprintf($validation_template, 'alert-error', 'fa-times-circle', 'Please fill in all fields.');
 		$passes = false;
 	} elseif( !preg_match('/@.+?\.(co.uk|com|org|gov|co|eu)$/', $_POST['form_email']) ){
-		$validation_message = "<span class='error'><i class='fa fa-times-circle'></i> Please Provide A Valid Email Address</span><br />";
+		$validation_message = sprintf($validation_template, 'alert-error', 'fa-times-circle', 'Please provide a valid email address.');
 	 	$passes = false;
 	}
 
@@ -26,7 +27,7 @@ if( isset($_POST['submit']) ){
 		$message .= 'Email: '.$_POST['form_email']."\n";
 		$message .= "Message:\n".$_POST['form_message'];
 
-		$validation_message = "<span class='success'>Thank you for your enquiry, we'll get back to you soon.</span>";
+		$validation_message = sprintf($validation_template, 'alert-success', 'fa-check-circle', 'Thank you for your enquiry, we\'ll get back to you soon.');
 
 		//add_filter( 'wp_mail_content_type', 'set_html_content_type' );
 		$headers = "From: ".get_bloginfo('name')." <".get_bloginfo('admin_email').">";
@@ -40,9 +41,9 @@ if( isset($_POST['submit']) ){
 
 ?>
 
-<?php echo $validation_message; ?>
+<form id="contact_form" class="form left" method="POST" <?php echo $passes ? 'style="display:none;"' : '' ; ?>>
 
-<form id="contact_form" method="POST" <?php echo $passes ? 'style="display:none;"' : '' ; ?>>
+	<?php echo $validation_message; ?>
 
 	<?php wp_nonce_field( basename( __FILE__ ), 'sc_contact_form_nonce' ); ?>
 
@@ -61,11 +62,11 @@ if( isset($_POST['submit']) ){
 
 	<br />
 
-	<button name="submit">Submit</button>
+	<button class="button green-1" name="submit">Submit</button>
 
 </form>
 
-<div class="contact-details">
+<div class="sidebar right">
 
 	<?php if($global_options->name || $global_options->address) : ?>
 		<i class="fa fa-map-marker"></i> <?php echo $global_options->name; ?>

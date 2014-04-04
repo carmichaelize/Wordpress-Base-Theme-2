@@ -40,9 +40,19 @@ class sc_testimonial_post_type {
 			//'menu_icon' => admin_url().'images/press-this.png',
 			'supports' => array( 'title', 'editor' ), // title, editor, thumbnail, excerpt, comments
 			'has_archive'   => true,
-			'rewrite' => array( 'slug' => 'testimonials', 'with_front' => true )
+			'rewrite' => array( 'slug' => 'testimonials', 'with_front' => true ),
+			'menu_icon' => 'dashicons-admin-comments'
 		);
 	}
+
+	//http://melchoyce.github.io/dashicons/
+	//Post 'dashicons-admin-post'
+	//Page 'dashicons-admin-page'
+	//Speech 'dashicons-admin-comments'
+	//Media  'dashicons-admin-media'
+	//Users 'dashicons-admin-users'
+	//Tools 'dashicons-admin-tools'
+	//Settings 'dashicons-admin-generic'
 
 	// public function post_taxonomy_options(){
 	// 	return array(
@@ -76,27 +86,6 @@ class sc_testimonial_post_type {
 	// public function post_taxonomy_setup(){
 	// 	register_taxonomy( 'location', 'products', $this->post_taxonomy_options() );
 	// }
-
-	public function post_type_menu_image(){
-		//Menu Font Values
-			//Post \f109
-			//Page \f105
-			//Speech \f101
-			//Media \f104
-			//Users \f110
-			//Apperance \f100
-			//Tools \f107
-			//Settings \f108
-
-		?>
-
-		<style>
-		    #menu-posts-testimonials .wp-menu-image:before {
-		        content: '\f101' !important;
-		    }
-		</style>
-
-	<?php }
 
 //Custom Meta Boxes
 
@@ -189,9 +178,6 @@ class sc_testimonial_post_type {
 
 		//Add Taxonomy to Custom Post type
 		//add_action( 'init', array(&$this, 'post_taxonomy_setup'), 0 );
-
-		//Set Menu Image From Admin Sprite
-		add_action( 'admin_head', array(&$this, 'post_type_menu_image') );
 
 		//Create 'Options' Object
 		$this->options = $this->build_options();

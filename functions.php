@@ -18,11 +18,17 @@ include_once('inc/wp_helpers.php');
 //Custom Classes
 include_once('inc/classes/settings_page.php');
 include_once('inc/classes/page_meta.php');
-//include_once('inc/classes/product_post_type.php');
 include_once('inc/classes/mockingbird/index.php');
 //include_once('inc/classes/page_editors.php');
 include_once('inc/classes/page_images/index.php');
 //include_once('inc/classes/page_icons.php');
+
+include_once('inc/classes/product_post_type.php');
+include_once('inc/classes/testimonial_post_type.php');
+include_once('inc/classes/staff_post_type.php');
+new sc_testimonial_post_type();
+new sc_staff_post_type();
+new sc_product_post_type();
 
 //Page Template Select page-{template_name}.php && // (T)emplate Name: My Custom Page //
 //get_page_template() is_page_template()
@@ -40,6 +46,10 @@ new sc_page_images('gallery_1');
 new sc_page_images('gallery_3', array('single'=>true));
 //add_image_size( 'sc_gallery_image', 200, 200, true );
 // new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
+
+//Page Gallery
+//new sc_page_images('sc_gallery', array('post_types' => array('motorhomes'), 'title' => 'Gallery Images'));
+//add_image_size( 'sc_gallery', 200, 200, true );
 
 //Theme Specific Functions
 include_once('inc/functions.php');

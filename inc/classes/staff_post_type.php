@@ -41,9 +41,19 @@ class sc_staff_post_type {
 			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes' ), // title, editor, thumbnail, excerpt, comments, page-attributes
 			'has_archive'   => true,
 			'rewrite' => array( 'slug' => 'staff', 'with_front' => true ),
-			'hierarchical' => true
+			'hierarchical' => true,
+			'menu_icon' => 'dashicons-admin-users'
 		);
 	}
+
+	//http://melchoyce.github.io/dashicons/
+	//Post 'dashicons-admin-post'
+	//Page 'dashicons-admin-page'
+	//Speech 'dashicons-admin-comments'
+	//Media  'dashicons-admin-media'
+	//Users 'dashicons-admin-users'
+	//Tools 'dashicons-admin-tools'
+	//Settings 'dashicons-admin-generic'
 
 	// public function post_taxonomy_options(){
 	// 	return array(
@@ -77,27 +87,6 @@ class sc_staff_post_type {
 	// public function post_taxonomy_setup(){
 	// 	register_taxonomy( 'location', 'products', $this->post_taxonomy_options() );
 	// }
-
-	public function post_type_menu_image(){
-		//Menu Sprite Positions (remeber to change CSS selector below!)
-			//Page -149px -33px, -149px -1px
-			//Speech Buble -29px -33px, -29px -1px
-			//Media -119px -33px, -119px -1px
-			//Users -300px -33px, -300px -1px
-			//Apperance 1px -33px, 1px -1px
-			//Tools -209px -33px, -209px -1px
-			//Settings -239px -33px, -239px -1px ?>
-
-		<style>
-		    #menu-posts-staff .wp-menu-image {
-		        background-position: -300px -33px !important;
-		    }
-		    #menu-posts-staff:hover .wp-menu-image {
-		        background-position: -300px -1px !important;
-		    }
-		</style>
-
-	<?php }
 
 
 //Custom Meta Box
@@ -241,9 +230,6 @@ class sc_staff_post_type {
 
 		//Add Taxonomy to Custom Post type
 		//add_action( 'init', array(&$this, 'post_taxonomy_setup'), 0 );
-
-		//Set Menu Image From Admin Sprite
-		add_action( 'admin_head', array(&$this, 'post_type_menu_image') );
 
 		//Create 'Options' Object
 		$this->options = $this->build_options();

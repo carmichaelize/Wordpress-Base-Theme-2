@@ -64,7 +64,3 @@
 			<section id="content">
 
 				<div class="wrapper">
-
-					<?php $edits = get_screenwriter(); var_dump( $edits ); ?>
-
-					<?php screenwriter(get_the_id(), array('before' => '<section>Test This Here OOOOOOO.'), 'scott'); ?>

@@ -152,17 +152,17 @@ ol {
 /* Form Resets & Fixes
 =========================================================================================================================*/
 
-fieldset {
+/*fieldset {
     border: 1px solid #000;
     padding:15px;
-}
+}*/
 
 /* Corrects text not wrapping in FF3 & alignment displayed oddly in IE6/7 */
 
-legend {
+/*legend {
     white-space: normal;
     *margin-left: -7px;
-}
+}*/
 
 /* Improves appearance and consistency in all browsers. Will affect browser validation and highlighting. */
  
@@ -299,6 +299,24 @@ li.clear {
 
 /* Form Styling (Twitter Bootstrap)
 =========================================================================================================================*/
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 40px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
 
 label,
 input,

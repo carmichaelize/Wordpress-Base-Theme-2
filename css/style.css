@@ -151,43 +151,49 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 /* Sidebar */
-#sidebar{
+.sidebar{
   list-style-type:none;
   margin:0;
   padding:0;
   width: 200px;
 }
 
-#sidebar li{
+.sidebar li{
 
 }
 
-#sidebar li ul{
+.sidebar li ul{
   list-style-type:none;
   margin:0;
   padding:0;
 }
 
-#sidebar li ul li{
+.sidebar li ul li{
 
 }
 
-#sidebar li a{
+.sidebar li a{
 
 }
 
-/* Footer */
+/*========================================================
+  Page Gallery
+========================================================*/
 
-/*.footer-bucket {
-  float:left;
-  width:160px;
-  margin-right:10px;
+/*#gallery li{
+  float:none;
+  display: inline-block;
+  width: auto;
+  width:43%;
+  margin:0 2% 2% 0 !important;
 }
 
-.footer-bucket ul {
-  list-style-type:none;
-  padding:0;
-  margin:0;
+#gallery li:nth-child(2n){
+  margin-right:0 !important;
+}
+
+#gallery li img{
+  width:100%;
 }*/
 
 /*========================================================

@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
-	<div id="content">
-		
-		404 Error Page!!!
+<div class="content-wrapper left">
 
-	</div>
+	<h1>404 Error Page!!!</h1>
+
+	<p>Sorry something went wrong, please try again.</p>
+
+</div>
 
 <?php get_sidebar(); ?>
 

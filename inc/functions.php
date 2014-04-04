@@ -20,6 +20,12 @@ function load_the_scripts_first(){
 	wp_enqueue_script('utilities');
 	//wp_enqueue_script('bootstrap');
 	//wp_enqueue_script('bigSlide');
+
+	//Fancybox Gallery
+	// if( get_post_meta(get_the_id(), 'sc_gallery', true) ){
+	// 	wp_register_script('fancybox', TEMPLATE_PATH.'/js/fancybox/fancybox.js', false, null, true);
+	// 	wp_enqueue_script('fancybox');
+	// }
 }
 
 function load_the_scripts_last(){
@@ -33,6 +39,7 @@ function load_the_scripts_last(){
 	$js_params['isPage'] = is_page() ? 1 : 0;
 	$js_params['isSingle'] = is_single() ? 1 : 0;
 	$js_params['postType'] = get_post_type();
+	//$js_params['hasGallery'] = get_post_meta(get_the_id(), 'sc_gallery', true) ? true : false;
 
 	wp_localize_script( 'script', 'ajaxObject', $js_params );
 }

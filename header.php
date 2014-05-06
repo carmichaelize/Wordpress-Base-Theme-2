@@ -37,6 +37,22 @@
 
 			<?php get_search_form(); ?>
 
+			<!-- .responsive-nav
+				<?php
+					if( has_nav_menu('navigation-menu')){
+						wp_nav_menu(array(
+							'theme_location' => 'navigation-menu',
+							'container'=> 'nav',
+							'container_class' => 'responsive-nav green-2',
+							'items_wrap' => '<ul>%3$s</ul>',
+							'sort_column' => 'menu_order'
+						));
+					}
+				?>
+
+			<div class="site-wrapper push">
+			 /.responsive-nav -->
+
 			<header id="header">
 
 				<div class="wrapper">
@@ -64,3 +80,4 @@
 			<section id="content">
 
 				<div class="wrapper">
+

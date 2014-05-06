@@ -19,7 +19,7 @@ function dd($value){
  * Savride's environment variables filtering ($_GET, $_POST, etc.) (c) 2008
  * wrapper function
  *
- * @return > a filtered value or redirect if filtered out as abuse  
+ * @return > a filtered value or redirect if filtered out as abuse
  * @param $_option Object > get variable by index, example: 'pagename' (useful when var does'nt exist)
  * @param $_old_option Object > use this as default if no value is set
  * @param $_filter Object[optional] regexp for advanced filtering or simple /string/ to deny
@@ -31,18 +31,18 @@ class Input {
   		  $_value = false;
 	  if( isset( $_GET[$_option] )) {
 	    $_get_t = $_GET[$_option];
-	   
+
 	    if( $_get_t !== false)
 	      $_value = $_get_t;
 	    }
-	 
+
 	  if( isset( $_POST[$_option] )) {
 	    $_post_t = $_POST[$_option];
-	    
+
 	    if( $_post_t !== false)
 	      $_value = $_post_t;
 	    }
-	 
+
 	  if( $_filter) {
 	    if ((( strpos($_filter, "#") !== false) && ( strpos($_filter, "#") == 0))
 	      ||
@@ -57,15 +57,15 @@ class Input {
 	         exit;
 	         }
 	    }
-	 
-	  if( !$_value ) 
+
+	  if( !$_value )
 	    {
 	    if ( isset( $_old_option) && ( $_old_option != "") )
 	      $_value = $_old_option;
 	      else
-	      $_value = false;   
+	      $_value = false;
 	      }
-	 
+
 	  return( $_value );
   	}
 
@@ -156,7 +156,7 @@ class Str {
 	*/
 
 	public static function limit($string = '', $limit, $trail = '...'){
-		
+
 		$string = trim(strip_tags($string));
 		return strlen($string) <= $limit ? $string : substr($string, 0, $limit).$trail ;
 
@@ -223,7 +223,7 @@ class Str {
 	*
 	*/
 	public static function slug($string, $separator = '-'){
-		
+
 		// Remove all characters that are not the separator, letters, numbers, or whitespace.
 		$string = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', strtolower(strip_tags($string)));
 
@@ -340,9 +340,9 @@ class Output {
 	*/
 
 	public function date_format($date = '', $format = "d/m/Y"){
-		
+
 		return is_int($date) ? date( $format, $date ) : date_format( date_create($date), $format );
-	
+
 	}
 
 }

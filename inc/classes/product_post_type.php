@@ -5,9 +5,9 @@ class sc_product_post_type {
 	public function post_type_options() {
 		return array(
 			'labels' => array(
-				'name' => _x( 'Products', 'post type general name' ),
-				'singular_name' => _x( 'Product', 'post type singular name' ),
-				'add_new' => _x( 'Add New', 'book' ),
+				'name' => __( 'Products' ),
+				'singular_name' => __( 'Product' ),
+				'add_new' => __( 'Add New' ),
 				'add_new_item' => __( 'Add New Product' ),
 				'edit_item' => __( 'Edit Product' ),
 				'new_item' => __( 'New Product' ),
@@ -21,7 +21,7 @@ class sc_product_post_type {
 			),
 			'description' => 'Holds our products and product specific data',
 			'public' => true,
-			'menu_position' => 5,
+			'menu_position' => 20,
 			//'menu_icon' => admin_url().'images/media-button-video.gif',
 			'supports' => array( 'title', 'editor', 'thumbnail' ), // title, editor, thumbnail, excerpt, comments, page-attributes
 			'has_archive'   => true,
@@ -45,8 +45,8 @@ class sc_product_post_type {
 	// 		'hierarchical' => false, // Hierarchical taxonomy (like categories)
 	// 		// This array of options controls the labels displayed in the WordPress Admin UI
 	// 		'labels' => array(
-	// 			'name' => _x( 'Locations', 'taxonomy general name' ),
-	// 			'singular_name' => _x( 'Location', 'taxonomy singular name' ),
+	// 			'name' => __( 'Locations' ),
+	// 			'singular_name' => __( 'Location' ),
 	// 			'search_items' =>  __( 'Search Locations' ),
 	// 			'all_items' => __( 'All Locations' ),
 	// 			'parent_item' => __( 'Parent Location' ),

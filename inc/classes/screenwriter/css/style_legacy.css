@@ -1,0 +1,94 @@
+/* General */
+
+.mce-tinymce.mce-container, .mce-tinymce * {
+	border-color:#D1D1D1 !important;
+}
+
+.mce-container, .mce-panel, .mce-container *, .mce-widget, .mce-widget *{
+	background: #F1F1F1;
+}
+
+/* Buttons */
+
+.mce-toolbar-grp{
+	padding:0;
+}
+
+.mce-btn-group{
+	margin:0 !important;
+}
+
+.mce-btn-group .mce-btn{
+	border-radius: 0 !important;
+	border:none;
+	border-right-style:solid;
+	border-right-width:1px;
+}
+
+.mce-btn button, .mce-btn button i{
+	color:#555;
+}
+
+/* Tooltip */
+
+.mce-tooltip-arrow{
+	border-color:#555;
+	background: none;
+}
+
+.mce-tooltip-inner{
+	border-color:#555;
+	box-shadow: 0 0 2px #333;
+	background: #555;
+	color:#fff;
+	font-size: 13px;
+}
+
+#post-body-content {
+	margin-bottom: 0;
+}
+
+/* Editor Styles */
+
+.sc-editor-container .defaultSkin > table {
+	border: 1px solid #D1D1D1;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.sc-editor-container .wp_themeSkin table.mceToolbar{
+	margin:0;
+}
+
+.sc-editor-container .defaultSkin td.mceToolbar, .defaultSkin .mceStatusbar {
+	padding:5px;
+	border-top: none !important;
+	border-radius: 2px 2px 0 0;
+}
+
+.sc-editor-container .mceToolbar {
+	margin-bottom:0;
+}
+
+.sc-editor-container .defaultSkin .mceIframeContainer{
+	border:none;
+	border-bottom: 1px solid #D1D1D1;
+}
+
+.sc-editor-container .defaultSkin table.mceLayout tr.mceLast td {
+	border-bottom:none;
+	border-radius:0 0 2px 2px;
+}
+
+.sc-editor-container .defaultSkin span.mceIcon{
+	background: none;
+	color:#555;
+}
+
+.sc-editor-container .defaultSkin span.mceIcon.mce_code:before{
+	content:'HTML';
+	font-size: 8px;
+	font-family: sans-serif;
+	line-height: 22px !important;
+	vertical-align: top !important;
+}

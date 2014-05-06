@@ -123,4 +123,14 @@ class page_meta {
 
 }
 
+/*
+|--------------------------------------------------------------------------
+| Custom get_post_meta function
+|--------------------------------------------------------------------------
+*/
+
+function sc_get_post_meta( $id, $key ){
+	return (object)get_post_meta( $id, $key, true );
+}
+
 ?>

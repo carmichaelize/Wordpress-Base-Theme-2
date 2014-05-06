@@ -1,6 +1,6 @@
 <div class="sidebar right">
 
-	<?php if ( function_exists('dynamic_sidebar') ) echo "<ul>"; dynamic_sidebar(); echo "</ul>"; ?>
+	<?php if ( function_exists('dynamic_sidebar') ) echo "<ul class='no-list'>"; dynamic_sidebar(); echo "</ul>"; ?>
 
 </div>
 

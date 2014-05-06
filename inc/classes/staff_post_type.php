@@ -20,9 +20,9 @@ class sc_staff_post_type {
 	public function post_type_options() {
 		return array(
 			'labels' => array(
-				'name' => _x( 'Staff Members', 'post type general name' ),
-				'singular_name' => _x( 'Staff Member', 'post type singular name' ),
-				'add_new' => _x( 'Add New', 'book' ),
+				'name' => __( 'Staff Members' ),
+				'singular_name' => __( 'Staff Member' ),
+				'add_new' => __( 'Add New' ),
 				'add_new_item' => __( 'Add New Staff Member' ),
 				'edit_item' => __( 'Edit Staff Member' ),
 				'new_item' => __( 'New Staff Member' ),
@@ -60,8 +60,8 @@ class sc_staff_post_type {
 	// 		'hierarchical' => false, // Hierarchical taxonomy (like categories)
 	// 		// This array of options controls the labels displayed in the WordPress Admin UI
 	// 		'labels' => array(
-	// 			'name' => _x( 'Locations', 'taxonomy general name' ),
-	// 			'singular_name' => _x( 'Location', 'taxonomy singular name' ),
+	// 			'name' => __( 'Locations' ),
+	// 			'singular_name' => __( 'Location' ),
 	// 			'search_items' =>  __( 'Search Locations' ),
 	// 			'all_items' => __( 'All Locations' ),
 	// 			'parent_item' => __( 'Parent Location' ),

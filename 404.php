@@ -2,7 +2,7 @@
 
 <div class="content-wrapper left">
 
-	<h1>404 Error Page!!!</h1>
+	<h1>404 Error</h1>
 
 	<p>Sorry something went wrong, please try again.</p>
 

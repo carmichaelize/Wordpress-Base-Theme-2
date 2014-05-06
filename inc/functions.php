@@ -114,6 +114,9 @@ add_action( 'init', 'activate_menus' );
 |--------------------------------------------------------------------------
 */
 
+//Remove version meta tag
+remove_action('wp_head', 'wp_generator');
+
 //Custom background support
 //add_custom_background();
 

@@ -1,0 +1,265 @@
+Page editors allow you ton create multiple rich text area per page.
+
+
+<h1>Features</h1>
+
+Mockingbird is a post relationship plugin for WordPress. It allows you to manually create lists of posts, pages and custom post types for individual entries to display on your site. Packed with features, it’s easy to use and is the perfect way to improve your onsite SEO and get users exploring your website. Mockingbird is WordPress 3.8 ready and has legacy support back to WordPress 3.4.
+
+At its most basic, Mockingbird can be used to display a curated list at the bottom of each post. However, its more powerful developer features are intended to allow you to create relationships between all post types set up on your website. It can be integrated and used anywhere (and for nearly any purpose) in your Wordpress theme.
+
+You could for example use it to display staff members associated with a specific department in your company. Or to curate which client testimonials you wish to display on certain project portfolio pages. Mockingbird could be used to build carousels on your e-commerce site, showing off your featured products. The possibilities are endless.
+
+Features include the ability too:
+<ul>
+	<li>Automatically display page editor data on each posts.</li>
+	<li>Set up the amount of inputs and editors.</li>
+	<li>Set up input labeling.</li>
+</ul>
+A documented <a href="/projects/mockingbird/documentation/">API</a> is also provided for further theme integration, development and configuration, including the ability too:
+<ul>
+	<li>Get the page editor object for the current post, page or custom post type.</li>
+	<li>Style the outputted list with a custom style array.</li>
+	<li>Create multiple Mockingbird instances with individual admin configurations.</li>
+	<li>Specify what post types to be displayed on.</li>
+	<li>Specify what individual posts to be displayed on.</li>
+</ul>
+
+//get_page_editors()
+
+<h1>Documentation - get_page_editors()</h1>
+
+This function will return {page editors} saved data.
+
+<h2>Usage</h2>
+
+<pre class="prettyprint linenums">$page_editors = get_page_editors( $id, $key );</pre>
+
+<h2>Parameters</h2>
+
+<strong>$id</strong> <em class="docs-style-1">(integer)</em> <em class="docs-style-3">(optional)</em>
+The ID of the post from which you want to return data. Use the get_the_id() function or global $post object ID (eg $post-&gt;ID) to get the value dynamically.
+
+Default: <em class="docs-style-2">none</em>
+
+<strong>$key</strong> <em class="docs-style-1">(string)</em> <em class="docs-style-3">(optional)</em>
+A string value specifying the unique key used to save data to the Wordpress post_meta table. A unique key is required to separate data from different {page_editor} instances, preventing possible conflicts.
+
+Default: <em class="docs-style-2">'sc_post_type_text_editors'</em>
+
+<h2>Return Value</h2>
+
+<ul class="project-notes">
+	<li>If <em><strong>$id</strong></em> is left blank the function returns results for the current post, page or custom post type.</li>
+	<li>If <em><strong>$id</strong></em> is specified, the function returns results for the specified post, page or custom post type.</li>
+	<li>If <em><strong>$key</strong></em> is specified, the function returns results from that {page editor} instance.</li>
+</ul>
+
+<h2>Examples</h2>
+
+Get page editor data for current post.
+
+<pre class="prettyprint linenums">&lt;?php $page_editors = get_page_editors(); ?&gt;</pre>
+
+Get page editor data for the post with the id of 5.
+
+<pre class="prettyprint linenums">&lt;?php $page_editors = get_page_editors(5); ?&gt;</pre>
+
+<h2>Notes</h2>
+<ul class="project-notes">
+	<li>Values can also be accessed manually using Wordpress's <a href="http://codex.wordpress.org/Function_Reference/get_post_meta">get_post_meta()</a> function and passing 'sc_page_editors' (or a custom key value) as the specified key.</li>
+</ul>
+
+
+//Admin Class
+
+<h1>Documentation - Admin Class</h1>
+
+{Page editor} instances can be created manually using the Page_editors_admin() class. This allows for the editors to be individually configured per post type (with different configuration options).
+
+<h2>Usage</h2>
+
+<pre class="prettyprint linenums">new Page_editors_admin( $params, $key );</pre>
+
+<h2>Parameters</h2>
+
+<strong>$params</strong> <em class="docs-style-1">(array)</em> <em class="docs-style-3">(optional)</em>
+An array of specified configuration values for the {page editor} instance. This provides a framework for how the instance should behave. The configuration options are:
+
+<ul>
+	<li><strong>post_types</strong> - an array of post types to be displayed on. Defaults to array("post").</li>
+	<li><strong>title</strong> - a string to display as the metabox title. Defaults to "Page Content".</li>
+	<li><strong>priority</strong> - priority level of the metabox (default, core, high, low). Defaults to "default".</li>
+	<li><strong>context</strong> - position of the metabox (normal, side, advanced). Defaults to "side".</li>
+	<li><strong>show_on</strong> - an array of post ids to be displayed on. Defaults to array().</li>
+	<li><strong>editors</strong> - an array of configuration arrays outling the editors. Defaults to array("post").</li>
+	<li><strong>config</strong> - an array of configuration options for the<a href="http://www.tinymce.com/wiki.php/Configuration">TinyMCE plugin</a>. Defaults to array().</li>
+</ul>
+
+Default: <em class="docs-style-2">array()</em>
+
+<strong>$key</strong> <em class="docs-style-1">(string)</em> <em class="docs-style-3">(required)</em>
+A string value specifying the unique key used to save data to the Wordpress post_meta table. A unique key is required to separate data from different {page_editor} instances, preventing possible conflicts.
+
+Default: <em class="docs-style-2">none</em>
+
+<h2>Examples</h2>
+
+Create an additional {page editor} instance, with different configuration settings.
+
+<pre class="prettyprint linenums">&lt;?php
+	$args = array(
+		'config' =&gt; array(
+		'toolbar' =&gt; 'bold italic underline'
+		),
+		'editors' =&gt; array(
+			array(
+				'key' =&gt; 'first_editor',
+				'label' =&gt; 'First Editor'
+			),
+			array(
+				'key' =&gt; 'second_editor',
+				'label' =&gt; 'Second Editor'
+			)
+		)
+		);
+
+	new Page_editors_admin( $args, "page_content" );
+?&gt;</pre>
+
+<h2>Notes</h2>
+
+<ul class="project-notes">
+	<li>If a unique key is not supplied the {page_editor_admin} class will override the initial plugin instance with any new configuration set in the <em><strong>$params</strong></em> array.</li>
+	<li>As this function creates a new instance, any saved {page_editor_admin} settings will not be applied to the new instance. Any intended deviation from the default settings has to be configured manually using the <strong><em>$params</em></strong> array.</li>
+	<li>Due to some confilicts with the TinyMCE plugin it is not possible to mainatin the default text editor on pages where the {page editors} are in use.</li>
+</ul>
+
+verse
+stanza
+word processor
+edit
+refine
+process
+text
+words
+prose
+
+
+http://en.wikipedia.org/wiki/List_of_birds_by_common_name
+
+Caterpillar
+Cliffhanger
+Octopus
+
+    Alpine slide
+    Balloon Race
+    Bayern Kurve
+    Booster (HUSS)
+    Breakdance
+    Bumper cars
+    Carousel
+    Caterpillar
+    Chairlift
+    Cliffhanger
+    Condor
+    Dark rides:
+        Black hole
+        Madhouse
+        Tunnel of love
+    Disk'O
+    Dive Bomber[3]
+    Drop towers:
+        Double Shot
+        Freefall
+        Space Shot
+        Super Shot
+        Turbo Drop
+    Enterprise
+    Evolution
+    Ferris wheel
+    Fireball
+    Flying Scooters
+    Fun Slide
+    Gravitron
+    Gyro tower
+    Hayride
+    Helter skelter
+    Hurricane
+    Jump and Smile
+    Kiddie ride
+    Loop-O-Plane
+    Loop-the-Loop[4]
+    Matterhorn
+    Mechanical bull
+    Monster
+    Motion simulator
+    Music Express
+    Octopus
+    Orbiter
+    Paratrooper
+    Pendulum rides:
+        Ali Baba
+        Booster (Fabbri)
+        Frisbee
+        Kamikaze
+        Looping Starship
+        Pirate Ship
+        Ranger
+        Screamin' Swing
+        Speed
+        Swing boat
+        Topple Tower
+    Power Surge
+    Rainbow
+    Red Baron
+    Reverse bungee
+    Rock-O-Plane
+    Rockin' Tug
+    Roll-O-Plane
+    Rotor
+    Round Up
+    Russian Mountains
+    Sky Swat
+    Skycoaster
+    Skydiver
+    Spin Out
+    Super Star
+    Swing Around
+    Swing rides:
+        Star Flyer
+        Wind Seeker
+    Tagada
+    Teacups
+    The Whip
+    Tilt-A-Whirl
+    Top Scan
+    Top Spin
+    Tornado
+    Train rides:
+        Backyard railroad
+        Omnimover
+        Roller coaster
+    Troika
+    Tumble Bug
+    Twist
+    UFO
+    UltraMax
+    Water rides:
+        AquaLoop
+        Bumper boats
+        Fishpipe
+        FlowRider
+        Lazy river
+        Log flume
+        Old Mill
+        ProSlide Tornado
+        River Caves
+        River rafting ride
+        Shoot the Chute
+        Tow boat ride
+        Water slide
+    Waltzer
+    Wipeout
+    Zipper
+
+

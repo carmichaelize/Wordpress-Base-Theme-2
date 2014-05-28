@@ -16,7 +16,7 @@ if( isset($_POST['submit']) ){
 	if( !$_POST['form_name'] || !$_POST['form_email'] || !$_POST['form_message'] ){
 		$validation_message = sprintf($validation_template, 'alert-error', 'fa-times-circle', 'Please fill in all fields.');
 		$passes = false;
-	} elseif( !preg_match('/@.+?\.(co.uk|com|org|gov|co|eu)$/', $_POST['form_email']) ){
+	} elseif( !preg_match('/(^.*@.*$)/', $_POST['form_email']) ){
 		$validation_message = sprintf($validation_template, 'alert-error', 'fa-times-circle', 'Please provide a valid email address.');
 	 	$passes = false;
 	}

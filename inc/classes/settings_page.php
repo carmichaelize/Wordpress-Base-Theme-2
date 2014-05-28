@@ -49,6 +49,7 @@ class sc_theme_settings_page {
    		add_settings_field('facebook', 'Facebook URL', array($this, 'text_input'), 'sc-theme-options', 'sc_social_section', array('facebook'));
     	add_settings_field('twitter', 'Twitter URL', array($this, 'text_input'), 'sc-theme-options', 'sc_social_section', array('twitter'));
     	add_settings_field('linkedin', 'LinkedIn URL', array($this, 'text_input'), 'sc-theme-options', 'sc_social_section', array('linkedin'));
+        //add_settings_field('googleplus', 'GooglePlus URL', array($this, 'text_input'), 'sc-theme-options', 'sc_social_section', array('googleplus'));
 
     	//Social Media Links
     	add_settings_section('sc_analytics_section', 'Analytics & SEO', array($this, 'validate_inputs'), 'sc-theme-options');

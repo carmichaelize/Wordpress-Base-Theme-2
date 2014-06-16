@@ -370,8 +370,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 /* Hide responsive nav */
 
-/*.responsive-nav,
-.responsive-menu-btn{
+/* Hide Responsive Menu
+.responsive-nav,
+#responsive-menu-btn{
     display: none;
 }*/
 

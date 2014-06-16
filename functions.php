@@ -19,7 +19,7 @@ include_once('inc/wp_helpers.php');
 include_once('inc/classes/settings_page.php');
 include_once('inc/classes/page_meta.php');
 include_once('inc/classes/mockingbird/index.php');
-include_once('inc/classes/screenwriter/index.php');
+//include_once('inc/classes/screenwriter/index.php');
 include_once('inc/classes/page_images/index.php');
 //include_once('inc/classes/page_icons.php');
 
@@ -43,7 +43,7 @@ new sc_page_meta(array('post_types'=>array('post', 'page')));
 //if( is_admin() ){}
 
 new sc_page_images('gallery_1');
-new sc_page_images('gallery_3', array('single'=>true));
+//new sc_page_images('gallery_3', array('single'=>true));
 //add_image_size( 'sc_gallery_image', 200, 200, true );
 // new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
 
@@ -51,20 +51,30 @@ new sc_page_images('gallery_3', array('single'=>true));
 //new sc_page_images('sc_gallery', array('post_types' => array('motorhomes'), 'title' => 'Gallery Images'));
 //add_image_size( 'sc_gallery', 200, 200, true );
 
-$args = array(
-		'post_types' => array('page', 'post'),
-		'sections'   => array(
-				array(
-					'key'   => 'top_section',
-					'label' => 'Top Section'
-				),
-				array(
-					'key'   => 'bottom_section',
-					'label' => 'Bottom Section'
-				)
-			)
-		);
-new Screenwriter_admin( $args, 'custom_page_content' );
+// $args = array(
+// 		'post_types' => array('page', 'post'),
+// 		'sections'   => array(
+// 				array(
+// 					'key'   => 'top_section',
+// 					'label' => 'Top Section'
+// 				),
+// 				array(
+// 					'key'   => 'bottom_section',
+// 					'label' => 'Bottom Section'
+// 				)
+// 			)
+// 		);
+// new Screenwriter_admin( $args, 'custom_page_content' );
+
+// Related Pages
+// if( is_admin() ){
+// 	$args = array(
+// 		'types_to_display' => array('page'),
+// 		'display_on' => array('page'),
+// 		'title' => 'Related Pages'
+// 		);
+// 	new Mockingbird_admin( 'sc_related_pages', $args );
+// }
 
 //Theme Specific Functions
 include_once('inc/functions.php');

@@ -5,8 +5,8 @@
 		'orderby' 	     => 'menu_order',
 		'order'		     => 'ASC',
 		'posts_per_page' => -1
-		);
-	$post_query = new Wp_Query($args);
+	);
+	$testimonial_query = new Wp_Query($args);
 ?>
 
 <?php if( $post_query->have_posts()) : $count = 0; ?>
@@ -16,7 +16,7 @@
 		<div class="wrapper">
 			<ul>
 
-				<?php while( $post_query->have_posts() ) : $post_query->the_post(); $count++; ?>
+				<?php while( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); $count++; ?>
 
 					<li>
 
@@ -44,6 +44,6 @@
 
 		</div>
 
-	</section><!-- /.container -->
+	</section><!-- /. -->
 
 <?php endif; wp_reset_query(); ?>

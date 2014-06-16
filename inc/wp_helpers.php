@@ -1,5 +1,11 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Metadata (SEO)
+|--------------------------------------------------------------------------
+*/
+
 class page_meta {
 
 	public static function title($id){
@@ -120,6 +126,44 @@ class page_meta {
 		return '';
 
 	}
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Breadcrumbs
+|--------------------------------------------------------------------------
+*/
+
+function sc_breadcrumbs( $post_id = false, $home_id = false, $seperator = '&raquo;', $post_type = 'page' ){
+
+	$breadcrumbs = get_post_ancestors( $post_id );
+	$breadcrumbs = !$breadcrumbs ? array($home_id) : $breadcrumbs;
+	$breadcrumbs = array_merge( $breadcrumbs, array( $post_id ) );
+
+	$args = array(
+		'post_type' => $post_type,
+		'post__in' => $breadcrumbs,
+		'orderby' => 'post__in',
+		'post_status' => 'publish'
+	);
+
+	$breadcrumbs = new Wp_Query($args);
+	wp_reset_query();
+	$breadcrumbs = $breadcrumbs->posts;
+
+	if( is_array( $breadcrumbs ) ){
+		$return_breadcrumbs = "";
+		$count = 0;
+		foreach( $breadcrumbs as $breadcrumb ){
+			$count++;
+			$return_breadcrumbs .= "<a href='".get_permalink($breadcrumb->ID)."'>{$breadcrumb->post_title}</a>";
+			$return_breadcrumbs .= $count == count($breadcrumbs) ? "" : " {$seperator} ";
+		}
+		return $return_breadcrumbs;
+	}
+
+	return false;
 
 }
 

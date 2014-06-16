@@ -1,10 +1,16 @@
 <?php get_header(); ?>
 
-<?php /*if( (int)$global_options->contact_page > 0 && is_page((int)$global_options->contact_page ) : ?>
+<?php
+/*
+if( is_front_page() ) : ?>
+	<?php include('templates/page_home.php'); ?>
+elseif( (int)$global_options->contact_page > 0 && is_page((int)$global_options->contact_page ) ) : ?>
 	<?php include('templates/page_contact.php'); ?>
 <?php else : ?>
 	<?php include('templates/page_standard.php'); ?>
-<?php endif;*/ ?>
+<?php endif;
+*/
+?>
 
 	<div class="content-wrapper left">
 		<?php if(have_posts()) : ?>

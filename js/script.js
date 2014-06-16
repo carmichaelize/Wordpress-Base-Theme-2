@@ -8,7 +8,7 @@ var isFrontPage = parseInt(ajaxObject.isFrontPage) ? true : false,
 	//hasGallery = ajaxObject.hasGallery;
 
 //Responsive Menu
-//$('.responsive-menu-btn').bigSlide({menu: '.responsive-nav', side: 'right', menuWidth: '185px'});
+//$('#responsive-menu-btn').bigSlide({menu: '.responsive-nav', side: 'right', menuWidth: '185px'});
 
 //Lightbox Gallery
 // if( hasGallery ){

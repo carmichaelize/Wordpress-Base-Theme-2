@@ -133,41 +133,17 @@ class sc_staff_post_type {
 				<textarea class="regular-text" style="width:25em;" name="<?php echo $this->options->unique_id; ?>[experience]" ><?php echo $data['experience']; ?></textarea>
 			</p>
 
-			<?php
-				if( $data['address'] ){
-					$address = $data['address'];
-				} else {
-					$address = '10 Barossa Place, Perth, PH1 5JX';
-				}
-			?>
-
 			<p>
 				<label for="sc_job_position">Address:</label>
 				<br />
 				<textarea class="regular-text" style="width:25em;" name="<?php echo $this->options->unique_id; ?>[address]" ><?php echo $address; ?></textarea>
 			</p>
 
-			<?php
-				if( $data['phone'] ){
-					$phone = $data['phone'];
-				} else {
-					$phone = '01738 623432';
-				}
-			?>
-
 			<p>
 				<label for="sc_job_position">Phone:</label>
 				<br />
 				<input type="text" class="regular-text" name="<?php echo $this->options->unique_id; ?>[phone]" value="<?php echo $phone; ?>" />
 			</p>
-
-			<?php
-				if( $data['fax'] ){
-					$fax = $data['fax'];
-				} else {
-					$fax = '01738 638594';
-				}
-			?>
 
 			<p>
 				<label for="sc_job_position">Fax:</label>

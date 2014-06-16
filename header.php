@@ -35,8 +35,6 @@
 
 	<body>
 
-			<?php get_search_form(); ?>
-
 			<!-- .responsive-nav
 				<?php
 					if( has_nav_menu('navigation-menu')){
@@ -57,6 +55,8 @@
 
 				<div class="wrapper">
 
+					<?php get_search_form(); ?>
+
 					<a href="<?php echo get_option('home'); ?>"><?php bloginfo('name'); ?></a>
 
 					<?php
@@ -70,6 +70,8 @@
 							));
 						}
 					?>
+
+					<!-- <a href="#" id="responsive-menu-btn"><i class="fa fa-navicon"></i></a> -->
 
 					<div class="clear"></div>
 

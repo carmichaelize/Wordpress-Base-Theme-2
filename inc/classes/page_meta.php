@@ -46,17 +46,17 @@ class sc_page_meta {
 
 		<p>
 			<label>Title</label>
-			<input type="text" class="widefat" name="<?php echo $this->options->unique_id; ?>[title]" value="<?php echo $data['title']; ?>" />
+			<input type="text" class="widefat" name="<?php echo $this->options->unique_id; ?>[title]" value="<?php echo isset($data['title']) && $data['title'] ? $data['title'] : ''; ?>" />
 		</p>
 
 		<p>
 			<label>Description</label>
-			<textarea class="widefat" name="<?php echo $this->options->unique_id; ?>[description]"><?php echo $data['description']; ?></textarea>
+			<textarea class="widefat" name="<?php echo $this->options->unique_id; ?>[description]"><?php echo isset($data['description']) && $data['description'] ? $data['description'] : ''; ?></textarea>
 		</p>
 
 		<p>
 			<label>Keywords (seperate each with a comma)</label>
-			<input type="text" class="widefat" name="<?php echo $this->options->unique_id; ?>[keywords]" value="<?php echo $data['keywords']; ?>" />
+			<input type="text" class="widefat" name="<?php echo $this->options->unique_id; ?>[keywords]" value="<?php echo isset($data['keywords']) && $data['keywords'] ? $data['keywords'] : ''; ?>" />
 		</p>
 
 	<?php }

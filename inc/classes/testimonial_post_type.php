@@ -115,19 +115,19 @@ class sc_testimonial_post_type {
 			<p>
 				<label for="sc_job_name">Name:</label>
 				<br />
-				<input type="text" id="sc_job_name" class="widefat" name="<?php echo $this->options->unique_id; ?>[name]" value="<?php echo $data['name'] ?>" />
+				<input type="text" id="sc_job_name" class="widefat" name="<?php echo $this->options->unique_id; ?>[name]" value="<?php echo isset($data['name']) && $data['name'] ? $data['name'] : '' ; ?>" />
 			</p>
 
 			<p>
 				<label for="sc_job_comapny">Company:</label>
 				<br />
-				<input type="text" id="sc_job_comapny" class="widefat" name="<?php echo $this->options->unique_id; ?>[company]" value="<?php echo $data['company'] ?>" />
+				<input type="text" id="sc_job_comapny" class="widefat" name="<?php echo $this->options->unique_id; ?>[company]" value="<?php echo isset($data['company']) && $data['company'] ? $data['company'] : '' ; ?>" />
 			</p>
 
 			<p>
 				<label for="sc_job_position">Position:</label>
 				<br />
-				<input type="text" id="sc_job_position" class="widefat" name="<?php echo $this->options->unique_id; ?>[position]" value="<?php echo $data['position'] ?>" />
+				<input type="text" id="sc_job_position" class="widefat" name="<?php echo $this->options->unique_id; ?>[position]" value="<?php echo isset($data['position']) && $data['position'] ? $data['position'] : '' ; ?>" />
 			</p>
 
 		<?php }

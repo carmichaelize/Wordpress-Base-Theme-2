@@ -126,6 +126,18 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	font-size: 1.5em;
 }
 
+/* Layout */
+
+.container-1
+{
+  padding:0px 0;
+}
+
+.container-2
+{
+  padding:0px 0;
+}
+
 
 /* Grid Layouts */
 
@@ -177,6 +189,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 }
 
+#logo{
+    display: block;
+    width:100px;
+    height:80px;
+   /* background: transparent url('../images/logo.png') center center no-repeat;*/
+}
+
 /* Main Navigation */
 
 .top-nav{
@@ -220,12 +239,15 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   Site Content
 ========================================================*/
 
-.content-wrapper{
-
+.content-wrapper.left
+{
+  width:70%;
+  min-height: 100px;
 }
 
 /* Sidebar */
-.sidebar{
+.sidebar
+{
   	list-style-type:none;
   	margin:0;
   	padding:0;
@@ -339,8 +361,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   }
 
   {
-	width:100% !important;
-	float:none !important;
+  	width:100% !important;
+  	float:none !important;
+    margin-right:0 !important;
   }
 
   {
@@ -348,9 +371,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   }
 
   .wrapper{
-    width:94%;
+    width:90%;
   }
-
 
   */
 

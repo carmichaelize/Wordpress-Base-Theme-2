@@ -9,14 +9,14 @@
 	$testimonial_query = new Wp_Query($args);
 ?>
 
-<?php if( $post_query->have_posts()) : $count = 0; ?>
+<?php if( $post_query->have_posts()) : $testimonial_count = 0; ?>
 
 	<section class="">
 
 		<div class="wrapper">
 			<ul>
 
-				<?php while( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); $count++; ?>
+				<?php while( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); $testimonial_count++; ?>
 
 					<li>
 

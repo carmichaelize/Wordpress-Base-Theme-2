@@ -26,6 +26,10 @@ function load_the_scripts_first(){
 	// 	wp_register_script('fancybox', TEMPLATE_PATH.'/js/fancybox/fancybox.js', false, null, true);
 	// 	wp_enqueue_script('fancybox');
 	// }
+
+	//wp_register_script('addThis', '//s7.addthis.com/js/300/addthis_widget.js#pubid={ID_GOES_HERE}', false, null, true);
+	//wp_enqueue_script('addThis');
+
 }
 
 function load_the_scripts_last(){

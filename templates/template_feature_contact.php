@@ -41,9 +41,9 @@ if( isset($_POST['submit']) ){
 
 ?>
 
-<form id="contact_form" class="form left" method="POST" <?php echo $passes ? 'style="display:none;"' : '' ; ?>>
+<?php echo $validation_message; ?>
 
-	<?php echo $validation_message; ?>
+<form id="contact_form" class="form left" method="POST" <?php echo $passes ? 'style="display:none;"' : '' ; ?>>
 
 	<?php wp_nonce_field( basename( __FILE__ ), 'sc_contact_form_nonce' ); ?>
 

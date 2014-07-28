@@ -4,7 +4,7 @@
 /*
 if( is_front_page() ) : ?>
 	<?php include('templates/page_home.php'); ?>
-elseif( (int)$global_options->contact_page > 0 && is_page((int)$global_options->contact_page ) ) : ?>
+elseif( sc_is_page( contact_page ) ) : ?>
 	<?php include('templates/page_contact.php'); ?>
 <?php else : ?>
 	<?php include('templates/page_standard.php'); ?>

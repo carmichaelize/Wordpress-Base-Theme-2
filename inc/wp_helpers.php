@@ -143,6 +143,42 @@ function sc_is_page( $page_name ){
 
 /*
 |--------------------------------------------------------------------------
+| Pagination Function
+|--------------------------------------------------------------------------
+*/
+
+function sc_pagination( $query ){
+
+	$string = "";
+
+	if( $query->max_num_pages > 1 ){
+
+		$args = array(
+			'base'     => @add_query_arg('pp', '%#%'),
+			'format'   => "pp=%#%",
+			'total'    => $query->max_num_pages,
+			'current'  => max( 1, isset($_GET['pp']) ? $_GET['pp'] : 1 ),
+			'show_all' => true,
+			//'end_size'     => 1,
+			//'mid_size'     => 2,
+			//'prev_next'    => True,
+			// 'prev_text'    => __('&larr;'),
+			// 'next_text'    => __('&rarr;'),
+			 'type'         => 'list',
+			//'add_args'     => true,
+			//'add_fragment' => ''
+		);
+
+		$string = paginate_links($args);
+
+	}
+
+	return $string;
+
+}
+
+/*
+|--------------------------------------------------------------------------
 | Breadcrumbs
 |--------------------------------------------------------------------------
 */

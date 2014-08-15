@@ -39,11 +39,11 @@
 
 <?php if($tweets) : ?>
 
-	<h2 class="tweet-list-head calendar-head">
+	<h3 class="tweet-list-head calendar-head">
 		<a target="_blank" href="https://twitter.com/<?php echo $tweets[0]->user->screen_name; ?>">Latest Tweets</a>
-	</h2>
+	</h3>
 
-	<ul class="tweet-list">
+	<ul class="no-list tweet-list">
 
 		<?php foreach( $tweets as $tweet) : ?>
 

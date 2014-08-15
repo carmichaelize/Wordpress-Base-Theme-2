@@ -2,7 +2,7 @@
 
 class sc_testimonial_post_type {
 
-	public $post_type_name = 'testimonials';
+	public $post_type_name = 'testimonial';
 
 	public $options = null;
 
@@ -22,7 +22,7 @@ class sc_testimonial_post_type {
 			'labels' => array(
 				'name' => __( 'Testimonials' ),
 				'singular_name' => __( 'Testimonial' ),
-				'add_new' => __( 'Add New', 'book' ),
+				'add_new' => __( 'Add New'),
 				'add_new_item' => __( 'Add New Testimonial' ),
 				'edit_item' => __( 'Edit Testimonial' ),
 				'new_item' => __( 'New Testimonial' ),
@@ -37,11 +37,11 @@ class sc_testimonial_post_type {
 			'description' => 'Holds our testimonials and testimonial specific data',
 			'public' => true,
 			'menu_position' => 20,
-			//'menu_icon' => admin_url().'images/press-this.png',
-			'supports' => array( 'title', 'editor' ), // title, editor, thumbnail, excerpt, comments
+			//'hierarchical' => true,
+			'supports' => array( 'title', 'editor' ), // title, editor, thumbnail, page-attributes, excerpt, comments
 			'has_archive'   => true,
 			'rewrite' => array( 'slug' => 'testimonials', 'with_front' => true ),
-			'menu_icon' => 'dashicons-admin-comments'
+			'menu_icon' => 'dashicons-admin-comments' //http://melchoyce.github.io/dashicons/
 		);
 	}
 

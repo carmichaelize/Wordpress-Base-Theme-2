@@ -22,12 +22,11 @@ class sc_product_post_type {
 			'description' => 'Holds our products and product specific data',
 			'public' => true,
 			'menu_position' => 20,
-			//'menu_icon' => admin_url().'images/media-button-video.gif',
 			'supports' => array( 'title', 'editor', 'thumbnail' ), // title, editor, thumbnail, excerpt, comments, page-attributes
 			'has_archive'   => true,
 			'rewrite' => array( 'slug' => 'products', 'with_front' => true ),
 			//'hierarchical' => true,
-			'menu_icon' => 'dashicons-admin-tools'
+			'menu_icon' => 'dashicons-admin-tools' //http://melchoyce.github.io/dashicons/
 		);
 	}
 

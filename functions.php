@@ -20,51 +20,21 @@ include_once('inc/classes/settings_page.php');
 include_once('inc/classes/page_meta.php');
 include_once('inc/classes/mockingbird/index.php');
 //include_once('inc/classes/screenwriter/index.php');
-include_once('inc/classes/page_images/index.php');
+//include_once('inc/classes/page_images/index.php');
 //include_once('inc/classes/page_icons.php');
 
-include_once('inc/classes/product_post_type.php');
-include_once('inc/classes/testimonial_post_type.php');
-include_once('inc/classes/staff_post_type.php');
-new sc_testimonial_post_type();
-new sc_staff_post_type();
-new sc_product_post_type();
+// include_once('inc/classes/product_post_type.php');
+// include_once('inc/classes/testimonial_post_type.php');
+// include_once('inc/classes/staff_post_type.php');
+// new sc_testimonial_post_type();
+// new sc_staff_post_type();
+// new sc_product_post_type();
 
 //Page Template Select page-{template_name}.php && // (T)emplate Name: My Custom Page //
 //get_page_template() is_page_template()
 
 new sc_theme_settings_page();
 new sc_page_meta(array('post_types'=>array('post', 'page')));
-//new sc_post_type_text_editors(array('unique_id'=>'test'));
-// new sc_post_type_template_select(array('unique_id'=>'template_select'));
-// new sc_product_post_type();
-// new sc_icon_meta(array('unique_id'=>'icon_test'));
-//new sc_post_type_text_editors(array('unique_id'=>'test'));
-//if( is_admin() ){}
-
-new sc_page_images('gallery_1');
-//new sc_page_images('gallery_3', array('single'=>true));
-//add_image_size( 'sc_gallery_image', 200, 200, true );
-// new sc_post_gallery(array('unique_id'=>'gallery_2', 'single'=>true));
-
-//Page Gallery
-//new sc_page_images('sc_gallery', array('post_types' => array('motorhomes'), 'title' => 'Gallery Images'));
-//add_image_size( 'sc_gallery', 200, 200, true );
-
-// $args = array(
-// 		'post_types' => array('page', 'post'),
-// 		'sections'   => array(
-// 				array(
-// 					'key'   => 'top_section',
-// 					'label' => 'Top Section'
-// 				),
-// 				array(
-// 					'key'   => 'bottom_section',
-// 					'label' => 'Bottom Section'
-// 				)
-// 			)
-// 		);
-// new Screenwriter_admin( $args, 'custom_page_content' );
 
 // Related Pages
 // if( is_admin() ){
@@ -81,6 +51,11 @@ include_once('inc/functions.php');
 
 //Custom Shortcodes
 include_once('inc/shortcodes.php');
+
+// Enable post thumbnails
+//add_theme_support('post-thumbnails');
+//set_post_thumbnail_size(520, 250, true);
+//add_image_size( 'sc_gallery', 200, 200, true );
 
 //Admin Titdy
 include_once('inc/admin_tidy.php');

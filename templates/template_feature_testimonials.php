@@ -1,6 +1,6 @@
 <?php
 	$args = array(
-		'post_type'      => 'testimonials',
+		'post_type'      => 'testimonial',
 		'post_status'    => 'publish',
 		'orderby' 	     => 'menu_order',
 		'order'		     => 'ASC',

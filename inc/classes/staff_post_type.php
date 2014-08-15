@@ -37,12 +37,11 @@ class sc_staff_post_type {
 			'description' => 'Holds our products and product specific data',
 			'public' => true,
 			'menu_position' => 20,
-			//'menu_icon' => admin_url().'images/media-button-video.gif',
 			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes' ), // title, editor, thumbnail, excerpt, comments, page-attributes
 			'has_archive'   => true,
 			'rewrite' => array( 'slug' => 'staff', 'with_front' => true ),
 			'hierarchical' => true,
-			'menu_icon' => 'dashicons-admin-users'
+			'menu_icon' => 'dashicons-admin-users' //http://melchoyce.github.io/dashicons/
 		);
 	}
 

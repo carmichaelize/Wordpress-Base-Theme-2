@@ -151,25 +151,59 @@ function sc_pagination( $query ){
 
 	$string = "";
 
-	if( $query->max_num_pages > 1 ){
+	if( !$query ){
 
-		$args = array(
-			'base'     => @add_query_arg('pp', '%#%'),
-			'format'   => "pp=%#%",
-			'total'    => $query->max_num_pages,
-			'current'  => max( 1, isset($_GET['pp']) ? $_GET['pp'] : 1 ),
-			'show_all' => true,
-			//'end_size'     => 1,
-			//'mid_size'     => 2,
-			//'prev_next'    => True,
-			// 'prev_text'    => __('&larr;'),
-			// 'next_text'    => __('&rarr;'),
-			 'type'         => 'list',
-			//'add_args'     => true,
-			//'add_fragment' => ''
-		);
+		global $wp_query;
 
-		$string = paginate_links($args);
+		if( $wp_query->max_num_pages > 1 ){
+
+			//Get current page and query type.
+			$current_page = max( 1, get_query_var('paged') );
+			$query_type = isset( $_GET['s'] ) ? '&' : '?';
+
+			$args = array(
+				'base'     => esc_url(get_pagenum_link())."{$query_type}paged=%#%",
+				'format'   => "{$query_type}paged=%#%",
+				'total'    => $wp_query->max_num_pages,
+				'current'  => max( 1, get_query_var('paged') ),
+				'show_all' => true,
+				//'end_size'     => 1,
+				//'mid_size'     => 2,
+				//'prev_next'    => True,
+				//'prev_text'    => __('« Previous'),
+				//'next_text'    => __('Next »'),
+				'type'         => 'list',
+				//'add_args'     => False,
+				//'add_fragment' => ''
+			);
+
+			$string = paginate_links($args);
+
+		}
+
+	} else {
+
+		if( $query->max_num_pages > 1 ){
+
+			$args = array(
+				'base'     => @add_query_arg('pp', '%#%'),
+				'format'   => "pp=%#%",
+				'total'    => $query->max_num_pages,
+				'current'  => max( 1, isset($_GET['pp']) ? $_GET['pp'] : 1 ),
+				'show_all' => true,
+				//'end_size'     => 1,
+				//'mid_size'     => 2,
+				//'prev_next'    => True,
+				// 'prev_text'    => __('&larr;'),
+				// 'next_text'    => __('&rarr;'),
+				 'type'         => 'list',
+				//'add_args'     => true,
+				//'add_fragment' => ''
+			);
+
+			$string = paginate_links($args);
+
+		}
 
 	}
 
@@ -212,6 +246,57 @@ function sc_breadcrumbs( $post_id = false, $home_id = false, $seperator = '&raqu
 	}
 
 	return false;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Parent / Child Menu
+|--------------------------------------------------------------------------
+*/
+
+
+function sc_menu(){
+
+	global $post;
+
+	$menu_array = array();
+
+	//Query Args
+	$args = array(
+			'post_type' => array('page'),
+			'post_status' => 'publish',
+			'post_parent' => $post->ID,
+			'orderby' => 'menu_order',
+			'order' => 'ASC',
+			'posts_per_page' => -1
+		);
+
+	//Top Level
+	if( $post->post_parent == 0 ){
+
+		$menu = new Wp_Query($args);
+		wp_reset_query();
+
+		$menu_array[] = $post->ID;
+		foreach( $menu->posts as $item ){
+			$menu_array[] = $item->ID;
+		}
+
+	//Child Level
+	} elseif( $post->post_parent > 0 ) {
+
+		$args['post_parent'] = $post->post_parent;
+		$menu = new Wp_Query($args);
+		wp_reset_query();
+
+		$menu_array[] = $post->post_parent;
+		foreach( $menu->posts as $item ){
+			$menu_array[] = $item->ID;
+		}
+	}
+
+	return count($menu_array) > 1 ? $menu_array : false ;
 
 }
 

@@ -63,39 +63,13 @@
 
 		<?php endwhile; ?>
 
-		<?php if( ( $total_pages = $wp_query->max_num_pages ) > 1 ) : ?>
+		<!-- Pagination -->
+			<?php if( $pagination = sc_pagination() ) : ?>
 
-			<div class="pagination">
+				<div class="pagination"><?php echo $pagination; ?></div>
 
-				<?php
-
-					//Get current page and query type.
-					$current_page = max( 1, get_query_var('paged') );
-					$query_type = isset( $_GET['s'] ) ? '&' : '?';
-
-					$args = array(
-						'base'     => esc_url(get_pagenum_link())."{$query_type}paged=%#%",
-						'format'   => "{$query_type}paged=%#%",
-						'total'    => $total_pages,
-						'current'  => max( 1, get_query_var('paged') ),
-						'show_all' => true,
-						//'end_size'     => 1,
-						//'mid_size'     => 2,
-						//'prev_next'    => True,
-						//'prev_text'    => __('« Previous'),
-						//'next_text'    => __('Next »'),
-						//'type'         => 'plain',
-						//'add_args'     => False,
-						//'add_fragment' => ''
-					);
-
-					echo paginate_links($args);
-
-				?>
-
-			</div>
-
-		<?php endif; ?>
+			<?php endif; ?>
+		<!-- /Pagination -->
 
 	<?php else: ?>
 

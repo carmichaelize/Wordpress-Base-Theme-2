@@ -356,10 +356,17 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 /* iPads (landscape) ----------- */
 @media only screen and (max-width : 1024px) {
 
-/*  {
+/*
+  .top-nav
+  {
 	display: none;
   }
 
+  .grid-3 li,
+  .grid-4 li,
+  .content-wrapper.left,
+  .content-wrapper.right,
+  .sidebar
   {
   	width:100% !important;
   	float:none !important;
@@ -389,8 +396,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
 }
-
-/* Hide responsive nav */
 
 /* Hide Responsive Menu
 .responsive-nav,
@@ -446,7 +451,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   	display:none;
 }
 
-a.responsive-menu-btn{
+a#responsive-menu-btn{
   	position: absolute;
   	font-weight: bold;
   	display: block;

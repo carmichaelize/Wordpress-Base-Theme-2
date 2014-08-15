@@ -65,7 +65,7 @@
 								'theme_location' => 'navigation-menu',
 								'container'=> 'nav',
 								'container_class' => 'top-nav',
-								'items_wrap' => '<ul id="no-list %1$s" class="%2$s">%3$s<li class="clear"></li></ul>',
+								'items_wrap' => '<ul id="%1$s" class="no-list %2$s">%3$s<li class="clear"></li></ul>',
 								'sort_column' => 'menu_order'
 							));
 						}

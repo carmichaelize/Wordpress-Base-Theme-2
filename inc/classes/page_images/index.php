@@ -222,6 +222,10 @@ function get_page_images($id = false, $key = '', $size = '', $single = false){
 //Add Shortcode
 //add_shortcode( 'page_images', 'page_images_shortcode_function' );
 
+//Page Gallery Example
+//new sc_page_images('sc_gallery', array('post_types' => array('motorhomes'), 'title' => 'Gallery Images'));
+//add_image_size( 'sc_gallery', 200, 200, true );
+
 
 
 ?>

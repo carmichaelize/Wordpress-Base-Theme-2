@@ -10,7 +10,7 @@ class page_meta {
 
 	public static function title($id){
 
-		$site_title = get_bloginfo('name');
+		$site_title = get_bloginfo('name')." | " .get_bloginfo('description');
 		$page_title = get_the_title();
 
 		// Site Home
@@ -217,37 +217,101 @@ function sc_pagination( $query ){
 |--------------------------------------------------------------------------
 */
 
-function sc_breadcrumbs( $post_id = false, $home_id = false, $seperator = '&raquo;', $post_type = 'page' ){
+// function sc_breadcrumbs( $post_id = false, $home_id = false, $seperator = '&raquo;', $post_type = 'page' ){
 
-	$breadcrumbs = get_post_ancestors( $post_id );
-	$breadcrumbs = !$breadcrumbs ? array($home_id) : $breadcrumbs;
-	$breadcrumbs = array_merge( $breadcrumbs, array( $post_id ) );
+// 	$breadcrumbs = get_post_ancestors( $post_id );
+// 	$breadcrumbs = !$breadcrumbs ? array($home_id) : $breadcrumbs;
+// 	$breadcrumbs = array_merge( $breadcrumbs, array( $post_id ) );
 
-	$args = array(
-		'post_type' => $post_type,
-		'post__in' => $breadcrumbs,
-		'orderby' => 'post__in',
-		'post_status' => 'publish'
-	);
+// 	$args = array(
+// 		'post_type' => $post_type,
+// 		'post__in' => $breadcrumbs,
+// 		'orderby' => 'post__in',
+// 		'post_status' => 'publish'
+// 	);
 
-	$breadcrumbs = new Wp_Query($args);
-	wp_reset_query();
-	$breadcrumbs = $breadcrumbs->posts;
+// 	$breadcrumbs = new Wp_Query($args);
+// 	wp_reset_query();
+// 	$breadcrumbs = $breadcrumbs->posts;
 
-	if( is_array( $breadcrumbs ) ){
-		$return_breadcrumbs = "";
-		$count = 0;
-		foreach( $breadcrumbs as $breadcrumb ){
-			$count++;
-			$return_breadcrumbs .= "<a href='".get_permalink($breadcrumb->ID)."'>{$breadcrumb->post_title}</a>";
-			$return_breadcrumbs .= $count == count($breadcrumbs) ? "" : " {$seperator} ";
-		}
-		return $return_breadcrumbs;
+// 	if( is_array( $breadcrumbs ) ){
+// 		$return_breadcrumbs = "";
+// 		$count = 0;
+// 		foreach( $breadcrumbs as $breadcrumb ){
+// 			$count++;
+// 			$return_breadcrumbs .= "<a href='".get_permalink($breadcrumb->ID)."'>{$breadcrumb->post_title}</a>";
+// 			$return_breadcrumbs .= $count == count($breadcrumbs) ? "" : " {$seperator} ";
+// 		}
+// 		return $return_breadcrumbs;
+// 	}
+
+// 	return false;
+
+// }
+
+function sc_breadcrumbs( $post_id = false, $home_id = false, $seperator = '&raquo;', $before = 'You are here:' ){
+
+	if( is_search() ) return false;
+
+	//Get Global Options
+	global $global_options;
+	$page_options = (array)$global_options;
+
+    $breadcrumbs = array_merge( array((int)$home_id), array() );
+
+	if( is_home() || ( is_single() && get_post_type() == 'post' ) ){
+		//Blog Archive Page
+		$breadcrumbs = array_merge( $breadcrumbs, array( (int)get_option('page_for_posts') ) );
+	} elseif( is_archive() || (get_post_type() != 'post' || get_post_type() != 'page') ){
+    	//Get Custom Post Type Archive
+
+    	$post_type_id = $page_options[ get_post_type().'_page'];
+    	$breadcrumbs = array_merge( $breadcrumbs, array( $post_type_id ) );
+    }
+
+    //Parent Pages
+    $breadcrumbs = array_merge( $breadcrumbs, array_reverse( get_post_ancestors( $post_id ) ) );
+
+    //Get Current Page
+    if( !is_home() && !is_archive() ){
+
+	    $breadcrumbs = array_merge( $breadcrumbs, array( $post_id ) );
 	}
 
-	return false;
+    $args = array(
+                    'post_type'      => 'any',
+                    'post__in'       => $breadcrumbs,
+                    'orderby'        => 'post__in',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => -1
+    );
+
+    $breadcrumbs = new Wp_Query($args);
+    wp_reset_query();
+    $breadcrumbs = $breadcrumbs->posts;
+
+    if( is_array( $breadcrumbs ) ){
+        $return_breadcrumbs = "{$before} ";
+        $return_breadcrumbs = "";
+        $count = 0;
+        foreach( $breadcrumbs as $breadcrumb ){
+            $count++;
+            $classes = "level-".$count;
+            $classes = $count == count($breadcrumbs) ? " current" : "" ;
+            $return_breadcrumbs .= "<a class='".$classes."' href='".get_permalink($breadcrumb->ID)."'>{$breadcrumb->post_title}</a>";
+            $return_breadcrumbs .= $count == count($breadcrumbs) ? "" : " {$seperator} ";
+        }
+        return $return_breadcrumbs;
+    }
+
+    return false;
 
 }
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------

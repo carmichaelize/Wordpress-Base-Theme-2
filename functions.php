@@ -68,4 +68,10 @@ include_once('inc/admin_tidy.php');
 /** Turn Off Revisions (Paste in wp-config.php) */
 //define('WP_POST_REVISIONS', false );
 
+//Redirect Page (Use before header.php)
+// if( $redirect_link = get_post_meta( get_the_id(), 'sc_redirect_link', true ) ){
+// 	wp_redirect( $redirect_link );
+// 	exit;
+// }
+
 ?>

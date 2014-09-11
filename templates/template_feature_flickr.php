@@ -31,7 +31,7 @@
 
 		//$flickr = array();
 
-		$response = (object)wp_remote_get("http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key={$api_key}&format=json&nojsoncallback=1&photoset_id={$photoset_id}{$extras}");
+		$response = (object)wp_remote_get("https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key={$api_key}&format=json&nojsoncallback=1&photoset_id={$photoset_id}{$extras}");
 		$response = json_decode($response->body);
 
 		$flickr = $response->photoset->photo;

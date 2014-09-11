@@ -55,10 +55,6 @@ h6 {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
-.error {
-  color:#b60000;
-}
-
 /*========================================================
   Style Classes
 ========================================================*/
@@ -80,6 +76,23 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 {
 
 }
+
+/* Font Styles */
+
+.error,
+a.error
+{
+  color:#b60000;
+}
+
+.underline,
+a.underline
+{
+    text-decoration: underline;
+    color:inherit;
+}
+
+/* Buttons */
 
 .button{
 	display: inline-block;
@@ -349,6 +362,20 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   	padding: 0 4px 5px;
 }
 
+img.alignleft,
+img.alignright
+{
+  margin-bottom:20px;
+}
+
+img.alignleft{
+  margin-right:20px;
+}
+
+img.alignright{
+  margin-left:20px;
+}
+
 /*========================================================
   Standard Media Queries (change to 'max/min-device-width' to traget non desktop only)
 ========================================================*/
@@ -375,6 +402,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
   {
 	text-align: center;
+  }
+
+  img.alignleft,
+  img.alignright
+  {
+    float:none;
+    display: block;
   }
 
   .wrapper{

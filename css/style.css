@@ -211,32 +211,35 @@ a.underline
 
 /* Main Navigation */
 
-.top-nav{
+.main-menu
+{
   	position: relative;
 }
 
-.top-nav ul{
+.main-menu ul
+{
   	list-style-type:none;
   	padding:0;
   	margin:0;
   	background: #000;
 }
 
-.top-nav li{
+.main-menu li
+{
   	position: relative;
   	float:left;
 }
 
-.top-nav a{
+.main-menu a
+{
   	display:block;
   	text-decoration:none;
   	color:#fff;
-  	padding:0 15px 10px 0;
-  	font-size:13px;
- 	font-weight:bold;
+  	padding:0 15px;
 }
 
-/*.top-nav li ul{
+/*.main-menu li ul
+{
   	display:none;
   	top:40px;
   	position:absolute;
@@ -244,7 +247,8 @@ a.underline
   	background: #212121;
 }
 
-.top-nav li:hover ul {
+.main-menu li:hover ul
+{
   	display:block;
 }*/
 
@@ -384,7 +388,7 @@ img.alignright{
 @media only screen and (max-width : 1024px) {
 
 /*
-  .top-nav
+  .main-menu
   {
 	display: none;
   }
@@ -453,6 +457,7 @@ img.alignright{
   	right: -185px;
   	width: 185px;
   	font-size: 1em;
+    overflow:auto;
 }
 
 .responsive-nav ul {

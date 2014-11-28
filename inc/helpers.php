@@ -99,6 +99,18 @@ class Input {
 class Str {
 
 	/**
+	* Convert a string to a boolean.
+	*
+	* @param  string  $string
+	* @return booean
+	*
+	*/
+
+	public static function bool($string = ''){
+		return strtolower(trim($string)) === 'true';
+	}
+
+	/**
 	* Convert a string to lowercase.
 	*
 	* @param  string  $string

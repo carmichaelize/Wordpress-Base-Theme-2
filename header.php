@@ -37,11 +37,11 @@
 
 			<!-- .responsive-nav
 				<?php
-					if( has_nav_menu('navigation-menu')){
+					if( has_nav_menu('main-menu')){
 						wp_nav_menu(array(
-							'theme_location' => 'navigation-menu',
+							'theme_location' => 'main-menu',
 							'container'=> 'nav',
-							'container_class' => 'responsive-nav green-2',
+							'container_class' => 'responsive-nav',
 							'items_wrap' => '<ul>%3$s</ul>',
 							'sort_column' => 'menu_order'
 						));
@@ -60,11 +60,11 @@
 					<a href="<?php echo get_option('home'); ?>"><?php bloginfo('name'); ?></a>
 
 					<?php
-						if( has_nav_menu('navigation-menu')){
+						if( has_nav_menu('main-menu')){
 							wp_nav_menu(array(
-								'theme_location' => 'navigation-menu',
+								'theme_location' => 'main-menu',
 								'container'=> 'nav',
-								'container_class' => 'top-nav',
+								'container_class' => 'main-menu',
 								'items_wrap' => '<ul id="%1$s" class="no-list %2$s">%3$s<li class="clear"></li></ul>',
 								'sort_column' => 'menu_order'
 							));

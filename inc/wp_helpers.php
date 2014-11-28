@@ -147,7 +147,7 @@ function sc_is_page( $page_name ){
 |--------------------------------------------------------------------------
 */
 
-function sc_pagination( $query ){
+function sc_pagination( $query = false ){
 
 	$string = "";
 

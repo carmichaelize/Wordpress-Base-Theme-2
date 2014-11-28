@@ -20,13 +20,9 @@
 
 				<?php //the_post_thumbnail(); ?>
 
-				<?php the_content('Read More >>'); ?>
+				<?php the_content(); ?>
 
 		<?php endwhile; ?>
-
-		<div class="navigation">
-			<?php previous_post_link('< %link') ?> <?php next_post_link(' %link >') ?>
-		</div>
 
 	<?php endif; ?>
 </div>

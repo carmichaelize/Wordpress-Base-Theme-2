@@ -106,7 +106,7 @@ add_action( 'init', 'footer_widgets' );
 
 //Create Primary Navigation
 function activate_menus() {
-	register_nav_menu( 'navigation-menu', 'Main Menu');
+	register_nav_menu( 'main-menu', 'Main Menu');
 	//register_nav_menu( 'footer-menu', 'Footer Menu');
 }
 add_action( 'init', 'activate_menus' );
